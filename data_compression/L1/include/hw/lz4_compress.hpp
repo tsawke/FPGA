@@ -34,6 +34,7 @@
 #include "s2mm.hpp"
 #include "stream_downsizer.hpp"
 #include "stream_upsizer.hpp"
+
 #ifndef ENABLE_LZ_FILTER
 #define ENABLE_LZ_FILTER 0
 #endif
@@ -45,22 +46,24 @@ namespace xf {
 namespace compression {
 namespace details {
 
-// ---------------------------
+// -----------------------------------------------------------------------------
 // Part1: split to literals + len/offset tokens
-// ---------------------------
+//   - Emits mid-run literal-only tokens when literal run hits MAX_LIT_COUNT
+//   - Emits final sentinel (lit_len>0, match_len=777, match_off=777) at end
+//   - max_lit_limit[index] becomes a sticky flag (if any mid-run flush happened)
+// -----------------------------------------------------------------------------
 template <int MAX_LIT_COUNT, int PARALLEL_UNITS>
 static void lz4CompressPart1(hls::stream<ap_uint<32> >& inStream,
-                             hls::stream<uint8_t>& lit_outStream,
+                             hls::stream<uint8_t>&      lit_outStream,
                              hls::stream<ap_uint<64> >& lenOffset_Stream,
-                             uint32_t input_size,
-                             uint32_t max_lit_limit[PARALLEL_UNITS],
-                             uint32_t index) {
+                             uint32_t                   input_size,
+                             uint32_t                   max_lit_limit[PARALLEL_UNITS],
+                             uint32_t                   index) {
 #pragma HLS inline off
     if (input_size == 0) return;
 
-    uint8_t match_len = 0;
     uint32_t lit_count = 0;
-    uint32_t lit_count_flag = 0;
+    uint32_t lit_count_flag = 0; // accumulate, never clear once set
 
     ap_uint<32> nextEncodedValue = inStream.read();
 
@@ -73,32 +76,26 @@ lz4_divide:
         uint8_t  tCh     = tmpEncodedValue.range(7, 0);
         uint8_t  tLen    = tmpEncodedValue.range(15, 8);
         uint16_t tOffset = tmpEncodedValue.range(31, 16);
-        uint32_t match_offset = tOffset;
 
-        // ---- Early flush to avoid deadlock on long literal runs ----
+        // Flush when literal run hits the cap (emit a literal-only token)
         if (lit_count >= MAX_LIT_COUNT) {
-            // Emit a literal-only token NOW: (lit_count, match_len=0, match_off=0)
             ap_uint<64> v;
             v.range(63,32) = (ap_uint<32>)lit_count;
-            v.range(15, 0) = (ap_uint<16>)0;
-            v.range(31,16) = (ap_uint<16>)0;
+            v.range(15, 0) = (ap_uint<16>)0;   // match_len=0
+            v.range(31,16) = (ap_uint<16>)0;   // match_off=0
             lenOffset_Stream << v;
-            lit_count = 0;            // reset counter
-            lit_count_flag = 0;       // clear flag after flush
+            lit_count_flag = 1;                // keep this sticky
+            lit_count = 0;
         }
 
         if (tLen) {
-            // a match is present, close current literal run
-            uint8_t enc_match_len = tLen - 4; // LZ4: encoded match len = real_len - 4
-            ap_uint<64> tmpValue;
-            tmpValue.range(63,32) = (ap_uint<32>)lit_count;
-            tmpValue.range(15, 0) = (ap_uint<16>)enc_match_len;
-            tmpValue.range(31,16) = (ap_uint<16>)match_offset;
-            lenOffset_Stream << tmpValue;
-
-            // reset literal run
+            // close current literal run + emit match token (encoded match len = real_len-4)
+            ap_uint<64> tok;
+            tok.range(63,32) = (ap_uint<32>)lit_count;
+            tok.range(15, 0) = (ap_uint<16>)(tLen - 4);
+            tok.range(31,16) = (ap_uint<16>)tOffset;
+            lenOffset_Stream << tok;
             lit_count = 0;
-            // advance by match length
             i += tLen;
         } else {
             // literal byte
@@ -108,39 +105,31 @@ lz4_divide:
         }
     }
 
-    // ---- Final flush (end of input) ----
+    // Final flush: emit sentinel only if remaining literals exist
     if (lit_count) {
-        ap_uint<64> tmpValue;
-        tmpValue.range(63,32) = (ap_uint<32>)lit_count;
-
-        // We keep 777 sentinel only for the FINAL token to tell Part2 it's the last token
-        // (match_len=777, match_off=777). Otherwise, mid-run flush uses 0/0 as above.
-        tmpValue.range(15, 0) = (ap_uint<16>)777;
-        tmpValue.range(31,16) = (ap_uint<16>)777;
-
-        lenOffset_Stream << tmpValue;
-        lit_count_flag = (lit_count == MAX_LIT_COUNT) ? 1 : 0;
+        ap_uint<64> tok;
+        tok.range(63,32) = (ap_uint<32>)lit_count;
+        tok.range(15, 0) = (ap_uint<16>)777;  // sentinel
+        tok.range(31,16) = (ap_uint<16>)777;  // sentinel
+        lenOffset_Stream << tok;
     }
-
-    // record whether literal run hit the max (kept for compatibility with outer logic)
     max_lit_limit[index] = lit_count_flag;
 }
 
-// ---------------------------
+// -----------------------------------------------------------------------------
 // Part2: pack to LZ4 format
-// ---------------------------
-static void lz4CompressPart2(hls::stream<uint8_t>& in_lit_inStream,
+//   - Consumes tokens from Part1 and writes LZ4 byte stream
+//   - DO NOT gate writes by input_size; always write and terminate via EoS
+// -----------------------------------------------------------------------------
+static void lz4CompressPart2(hls::stream<uint8_t>&      in_lit_inStream,
                              hls::stream<ap_uint<64> >& in_lenOffset_Stream,
-                             hls::stream<ap_uint<8> >& outStream,
-                             hls::stream<bool>& endOfStream,
-                             hls::stream<uint32_t>& compressdSizeStream,
-                             uint32_t input_size) {
+                             hls::stream<ap_uint<8> >&  outStream,
+                             hls::stream<bool>&         endOfStream,
+                             hls::stream<uint32_t>&     compressdSizeStream,
+                             uint32_t                   input_size) {
 #pragma HLS inline off
-    // States
     enum lz4CompressStates { WRITE_TOKEN, WRITE_LIT_LEN, WRITE_MATCH_LEN, WRITE_LITERAL, WRITE_OFFSET0, WRITE_OFFSET1 };
 
-    uint32_t lit_len = 0;
-    uint16_t outCntr = 0;
     uint32_t compressedSize = 0;
     enum lz4CompressStates next_state = WRITE_TOKEN;
 
@@ -164,51 +153,40 @@ lz4_compress:
 #pragma HLS DEPENDENCE variable=match_length inter false
         ap_uint<8> outValue = 0;
 
-        // Read the next len/offset token when required
         if (readOffsetFlag) {
             nextLenOffsetValue = in_lenOffset_Stream.read(); // blocks until available
             readOffsetFlag = false;
         }
 
-        // Unpack token
-        ap_uint<32> lit_len_tmp  = nextLenOffsetValue.range(63, 32);
-        ap_uint<16> match_len_tmp= nextLenOffsetValue.range(15, 0);
-        ap_uint<16> match_off_tmp= nextLenOffsetValue.range(31,16);
+        ap_uint<32> lit_len_tmp   = nextLenOffsetValue.range(63, 32);
+        ap_uint<16> match_len_tmp = nextLenOffsetValue.range(15, 0);
+        ap_uint<16> match_off_tmp = nextLenOffsetValue.range(31,16);
 
         if (next_state == WRITE_TOKEN) {
-            lit_length  = (uint16_t)lit_len_tmp;
-            match_length= (uint16_t)match_len_tmp;
-            match_offset= (uint16_t)match_off_tmp;
+            lit_length   = (uint16_t)lit_len_tmp;
+            match_length = (uint16_t)match_len_tmp;
+            match_offset = (uint16_t)match_off_tmp;
 
-            // Two token types:
-            //  A) normal match token:       match_length>0, match_offset>0
-            //  B) literal-only token:       match_length==0 && match_offset==0
-            //  C) final sentinel token:     match_length==777 && match_offset==777
             bool is_literal_only = (match_length == 0) && (match_offset == 0);
             bool is_special_end  = (match_length == 777) && (match_offset == 777);
 
-            // Correct index increment:
-            //  literal-only token:   inIdx += lit_length
-            //  normal match token:   inIdx += lit_length + (match_length + 4)
-            uint32_t idx_increment =
-                is_literal_only ? (uint32_t)lit_length
-                                : (uint32_t)lit_length + (uint32_t)match_length + 4;
+            // Correct index increment based on token type
+            uint32_t idx_increment = is_literal_only
+                                   ? (uint32_t)lit_length
+                                   : (uint32_t)lit_length + (uint32_t)match_length + 4;
             inIdx += idx_increment;
 
-            // Treat literal-only token as "no offset section"
             lit_ending = is_literal_only;
-
             if (is_special_end) {
-                // mark end-of-input; will stop after emitting the last literals
                 inIdx = input_size;
                 lit_ending = true;
             }
 
-            // upper nibble: literal_len (capped at 15)
+            // token upper nibble: literal length (capped)
             bool lit_len_ge_15 = (lit_length >= 15);
             bool lit_len_gt_0  = (lit_length > 0);
-            outValue.range(7, 4) = lit_len_ge_15 ? (ap_uint<4>)15
-                                                 : (lit_len_gt_0 ? (ap_uint<4>)lit_length : (ap_uint<4>)0);
+            outValue.range(7,4) = lit_len_ge_15 ? (ap_uint<4>)15
+                                 : (lit_len_gt_0 ? (ap_uint<4>)lit_length : (ap_uint<4>)0);
             if (lit_len_ge_15) {
                 lit_length -= 15;
                 next_state = WRITE_LIT_LEN;
@@ -219,15 +197,14 @@ lz4_compress:
                 next_state = WRITE_LITERAL;
                 readOffsetFlag = false;
             } else {
-                // no literals to write; go either offset or (for literal-only) jump directly to next token
                 next_state = lit_ending ? WRITE_TOKEN : WRITE_OFFSET0;
-                readOffsetFlag = lit_ending; // for literal-only, load next token immediately
+                readOffsetFlag = lit_ending;
             }
 
-            // lower nibble: match_len (capped at 15) for normal match tokens only
+            // token lower nibble: match length (capped) only for normal match tokens
             if (!lit_ending) {
                 bool match_len_ge_15 = (match_length >= 15);
-                outValue.range(3, 0) = match_len_ge_15 ? (ap_uint<4>)15 : (ap_uint<4>)match_length;
+                outValue.range(3,0) = match_len_ge_15 ? (ap_uint<4>)15 : (ap_uint<4>)match_length;
                 if (match_len_ge_15) {
                     match_length -= 15;
                     extra_match_len = true;
@@ -237,8 +214,7 @@ lz4_compress:
                 }
                 match_offset_plus_one = match_offset + 1;
             } else {
-                // literal-only token
-                outValue.range(3, 0) = 0;
+                outValue.range(3,0) = 0;
                 extra_match_len = false;
                 match_offset_plus_one = 0;
             }
@@ -263,12 +239,12 @@ lz4_compress:
             }
 
         } else if (next_state == WRITE_OFFSET0) {
-            outValue = match_offset_plus_one.range(7, 0);
+            outValue = match_offset_plus_one.range(7,0);
             next_state = WRITE_OFFSET1;
             readOffsetFlag = false;
 
         } else if (next_state == WRITE_OFFSET1) {
-            outValue = match_offset_plus_one.range(15, 8);
+            outValue = match_offset_plus_one.range(15,8);
             next_state = extra_match_len ? WRITE_MATCH_LEN : WRITE_TOKEN;
             readOffsetFlag = !extra_match_len;
 
@@ -283,13 +259,10 @@ lz4_compress:
             }
         }
 
-        // write out (guard remains to limit run-away)
-        bool should_write = (compressedSize < input_size);
-        if (should_write) {
-            outStream << outValue;
-            endOfStream << 0;
-            compressedSize++;
-        }
+        // ALWAYS write; do not gate by input_size
+        outStream << outValue;
+        endOfStream << 0;
+        compressedSize++;
     }
 
     // flush end markers
@@ -305,17 +278,17 @@ lz4_compress:
 namespace xf {
 namespace compression {
 
-// ---------------------------
+// -----------------------------------------------------------------------------
 // Glue lzCompress -> BestMatch -> Booster -> LZ4 packer
-// ---------------------------
+// -----------------------------------------------------------------------------
 template <int MAX_LIT_COUNT, int PARALLEL_UNITS>
 static void lz4Compress(hls::stream<ap_uint<32> >& inStream,
-                        hls::stream<ap_uint<8> >& outStream,
-                        uint32_t max_lit_limit[PARALLEL_UNITS],
-                        uint32_t input_size,
-                        hls::stream<bool>& endOfStream,
-                        hls::stream<uint32_t>& compressdSizeStream,
-                        uint32_t index) {
+                        hls::stream<ap_uint<8> >&  outStream,
+                        uint32_t                   max_lit_limit[PARALLEL_UNITS],
+                        uint32_t                   input_size,
+                        hls::stream<bool>&         endOfStream,
+                        hls::stream<uint32_t>&     compressdSizeStream,
+                        uint32_t                   index) {
 #pragma HLS inline off
     hls::stream<uint8_t>      lit_outStream("lit_outStream");
     hls::stream<ap_uint<64> > lenOffset_Stream("lenOffset_Stream");
@@ -324,7 +297,7 @@ static void lz4Compress(hls::stream<ap_uint<32> >& inStream,
 #pragma HLS STREAM       variable = lenOffset_Stream depth = 64
 #pragma HLS BIND_STORAGE variable = lenOffset_Stream type = FIFO impl = SRL
 
-// Keep literal FIFO reasonably deep (compile-time const)
+// Keep literal FIFO reasonably deep
 #pragma HLS STREAM       variable = lit_outStream depth = MAX_LIT_COUNT
 #pragma HLS BIND_STORAGE variable = lit_outStream type = FIFO impl = SRL
 
@@ -466,16 +439,16 @@ void lz4CompressMM(const data_t* in, data_t* out, uint32_t* compressd_size, cons
                 uint32_t inBlockSize = block_length;
                 if (readBlockSize + block_length > input_size) inBlockSize = input_size - readBlockSize;
                 if (inBlockSize < MIN_B_SIZE) {
-                    small_block[j]      = 1;
+                    small_block[j]       = 1;
                     small_block_inSize[j]= inBlockSize;
-                    input_block_size[j] = 0;
-                    input_idx[j]        = 0;
+                    input_block_size[j]  = 0;
+                    input_idx[j]         = 0;
                 } else {
-                    small_block[j]      = 0;
-                    input_block_size[j] = inBlockSize;
-                    readBlockSize      += inBlockSize;
-                    input_idx[j]        = (i + j) * max_block_size;
-                    output_idx[j]       = (i + j) * max_block_size;
+                    small_block[j]       = 0;
+                    input_block_size[j]  = inBlockSize;
+                    readBlockSize       += inBlockSize;
+                    input_idx[j]         = (i + j) * max_block_size;
+                    output_idx[j]        = (i + j) * max_block_size;
                 }
             } else {
                 input_block_size[j] = 0;

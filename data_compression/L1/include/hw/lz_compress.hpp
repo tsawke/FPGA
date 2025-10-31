@@ -48,8 +48,8 @@ namespace xf {
 namespace compression {
 
 /**
- * @brief Stream-in-stream-out LZ front-end:
- *        Reads 8-bit literals, outputs 32-bit {ch, match_len, match_offset}.
+ * Stream-in-stream-out LZ front-end (scalar):
+ *   Reads 8-bit literals, outputs 32-bit {ch, match_len, match_offset}.
  *
  * @tparam MATCH_LEN             Sliding window length used for match compare (bytes)
  * @tparam MIN_MATCH             Minimum match length to be considered
@@ -58,10 +58,6 @@ namespace compression {
  * @tparam MIN_OFFSET            Minimum allowed offset
  * @tparam LZ_DICT_SIZE          Hash dictionary size (entries)
  * @tparam LEFT_BYTES            Tail bytes forwarded without match attempt
- *
- * @param inStream   input byte stream
- * @param outStream  output stream {literal, match_len, match_offset}
- * @param input_size number of input bytes
  */
 template <int MATCH_LEN,
           int MIN_MATCH,
@@ -93,7 +89,8 @@ void lzCompress(hls::stream<ap_uint<8> >& inStream, hls::stream<ap_uint<32> >& o
     uintDictV_t resetValue = 0;
     for (int i = 0; i < MATCH_LEVEL; i++) {
 #pragma HLS UNROLL
-        resetValue.range((i + 1) * c_dictEleWidth - 1, i * c_dictEleWidth + MATCH_LEN * 8) = (ap_uint<c_indxBitCnts>)-1;
+        resetValue.range((i + 1) * c_dictEleWidth - 1, i * c_dictEleWidth + MATCH_LEN * 8) =
+            (ap_uint<c_indxBitCnts>) - 1;
     }
 
 dict_flush:
@@ -155,7 +152,7 @@ lz_main:
             hash = (present_window[0] << 4) ^ (present_window[1] << 3) ^ (present_window[2] << 2) ^
                    (present_window[3]);
         }
-        hash &= (LZ_DICT_SIZE - 1);
+        hash &= (LZ_DICT_SIZE - 1); // ensure in-range
 
         // Dictionary read
         bool slot_valid = (dict_tag[hash] == epoch);
@@ -279,7 +276,7 @@ lz_tail_left:
 }
 
 /**
- * @brief Vector-stream version for block-by-block processing with circular buffer.
+ * Vector-stream LZ front-end (block-by-block with circular buffer).
  *
  * @tparam MAX_INPUT_SIZE        Max bytes per block (usually 64KB)
  * @tparam SIZE_DT               Size datatype
@@ -302,13 +299,13 @@ template <int MAX_INPUT_SIZE = 64 * 1024,
           int MIN_OFFSET = 1,
           int LZ_DICT_SIZE = (1 << 12),
           int LEFT_BYTES = 64>
-void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<IntVectorStream_dt<32, 1> >& outStream) {
+void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream,
+                hls::stream<IntVectorStream_dt<32, 1> >& outStream) {
     const uint16_t c_indxBitCnts = 24;
     const uint16_t c_fifo_depth = LEFT_BYTES + 2;
     const int c_dictEleWidth = (MATCH_LEN * 8 + c_indxBitCnts);
     typedef ap_uint<MATCH_LEVEL * c_dictEleWidth> uintDictV_t;
     typedef ap_uint<c_dictEleWidth> uintDict_t;
-    const uint32_t totalDictSize = (1U << (c_indxBitCnts - 1)); // 8MB based on index 3 bytes
 
 #ifndef AVOID_STATIC_MODE
     static bool resetDictFlag = true;
@@ -320,7 +317,7 @@ void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<In
 
     // Dictionary (2-bank) + lazy tag epoch
     uintDictV_t dict[LZ_DICT_SIZE];
-#pragma HLS RESOURCE variable = dict core = XPM_MEMORY uram
+#pragma HLS BIND_STORAGE variable = dict type = RAM_T2P impl = BRAM
 #pragma HLS ARRAY_PARTITION variable = dict block factor = 2 dim = 1
 
     ap_uint<8> dict_tag[LZ_DICT_SIZE];
@@ -351,7 +348,7 @@ void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<In
             for (int i = 0; i < MATCH_LEVEL; i++) {
 #pragma HLS UNROLL
                 resetValue.range((i + 1) * c_dictEleWidth - 1, i * c_dictEleWidth + MATCH_LEN * 8) =
-                    (ap_uint<c_indxBitCnts>)-1;
+                    (ap_uint<c_indxBitCnts>) - 1;
             }
         dict_flush_vec:
 #if ENABLE_LAZY_DICT_RESET
@@ -412,9 +409,7 @@ void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<In
     lz_vec_main:
         for (; nextVal.strobe != 0; ++iIdx) {
 #pragma HLS PIPELINE II = 1
-#ifndef DISABLE_DEPENDENCE
 #pragma HLS dependence variable = dict inter false
-#endif
             uint32_t currIdx = (iIdx + (relativeNumBlocks * MAX_INPUT_SIZE)) - MATCH_LEN + 1;
 
             // circular buffer push/pop
@@ -438,7 +433,7 @@ void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<In
                 hash = (present_window[0] << 4) ^ (present_window[1] << 3) ^ (present_window[2] << 2) ^
                        (present_window[3]);
             }
-            hash &= (LZ_DICT_SIZE - 1);
+            hash &= (LZ_DICT_SIZE - 1); // ensure in-range
 
             // dict read/update
             bool slot_valid = (dict_tag[hash] == epoch);
@@ -533,8 +528,8 @@ void lzCompress(hls::stream<IntVectorStream_dt<8, 1> >& inStream, hls::stream<In
 
             // pack and write out
             outValue.data[0] = 0;
-            outValue.data[0].range(7, 0) = present_window[0];
-            outValue.data[0].range(15, 8) = match_length;
+            outValue.data[0].range(7, 0)   = present_window[0];
+            outValue.data[0].range(15, 8)  = match_length;
             outValue.data[0].range(31, 16) = match_offset;
             outStream << outValue;
         }
