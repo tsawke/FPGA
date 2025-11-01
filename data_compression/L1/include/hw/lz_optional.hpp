@@ -325,6 +325,7 @@ void lzBestMatchFilter(hls::stream<compressd_dt>& inStream, hls::stream<compress
 
 lz_bestMatchFilter:
     for (uint32_t i = c_max_match_length; i < input_size; i++) {
+    #pragma HLS LOOP_FLATTEN off
 #pragma HLS PIPELINE II = 1
         // shift register logic
         compressd_dt outValue = compare_window[0];
