@@ -1,0 +1,190 @@
+
+
+================================================================
+== Vitis HLS Report for 'lzBestMatchFilter_6_65536_s'
+================================================================
+* Date:           Sat Nov  1 14:11:34 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  10.597 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------------------------------+-------------------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |                                                                  |                                                       |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+        |                             Instance                             |                         Module                        |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+        +------------------------------------------------------------------+-------------------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |grp_lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter_fu_135  |lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter  |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +------------------------------------------------------------------+-------------------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+        * Loop: 
+        +--------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                                |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |            Loop Name           |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- lz_bestMatchFilter_left_over  |        6|        6|         1|          -|          -|     6|        no|
+        +--------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     67|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|     229|    432|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|    159|    -|
+|Register         |        -|    -|     241|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     470|    658|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|      1|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------------------------------+-------------------------------------------------------+---------+----+-----+-----+-----+
+    |                             Instance                             |                         Module                        | BRAM_18K| DSP|  FF | LUT | URAM|
+    +------------------------------------------------------------------+-------------------------------------------------------+---------+----+-----+-----+-----+
+    |grp_lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter_fu_135  |lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter  |        0|   0|  229|  401|    0|
+    |sparsemux_13_3_32_1_1_U57                                         |sparsemux_13_3_32_1_1                                  |        0|   0|    0|   31|    0|
+    +------------------------------------------------------------------+-------------------------------------------------------+---------+----+-----+-----+-----+
+    |Total                                                             |                                                       |        0|   0|  229|  432|    0|
+    +------------------------------------------------------------------+-------------------------------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |add_ln356_fu_222_p2              |         +|   0|  0|  11|           3|           1|
+    |ap_block_state10                 |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op53_write_state10  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln315_fu_156_p2             |      icmp|   0|  0|  39|          32|           1|
+    |icmp_ln356_fu_216_p2             |      icmp|   0|  0|  11|           3|           3|
+    |ap_block_state1                  |        or|   0|  0|   2|           1|           1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |Total                            |          |   0|  0|  67|          41|           8|
+    +---------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  59|         11|    1|         11|
+    |ap_done                |   9|          2|    1|          2|
+    |bestMatchStream_blk_n  |   9|          2|    1|          2|
+    |bestMatchStream_din    |   9|          2|   32|         64|
+    |bestMatchStream_write  |  14|          3|    1|          3|
+    |compressdStream_blk_n  |   9|          2|    1|          2|
+    |compressdStream_read   |  14|          3|    1|          3|
+    |i_8_fu_104             |   9|          2|    3|          6|
+    |input_size_blk_n       |   9|          2|    1|          2|
+    |input_size_c1_blk_n    |   9|          2|    1|          2|
+    |real_start             |   9|          2|    1|          2|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  | 159|         33|   44|         99|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                      Name                                     | FF | LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                                      |  10|   0|   10|          0|
+    |ap_done_reg                                                                    |   1|   0|    1|          0|
+    |compare_window_16_reg_317                                                      |  32|   0|   32|          0|
+    |compare_window_17_reg_322                                                      |  32|   0|   32|          0|
+    |compare_window_18_reg_327                                                      |  32|   0|   32|          0|
+    |compare_window_19_reg_332                                                      |  32|   0|   32|          0|
+    |compare_window_20_reg_337                                                      |  32|   0|   32|          0|
+    |compare_window_reg_312                                                         |  32|   0|   32|          0|
+    |grp_lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter_fu_135_ap_start_reg  |   1|   0|    1|          0|
+    |i_8_fu_104                                                                     |   3|   0|    3|          0|
+    |icmp_ln315_reg_301                                                             |   1|   0|    1|          0|
+    |input_size_2_reg_296                                                           |  32|   0|   32|          0|
+    |start_once_reg                                                                 |   1|   0|    1|          0|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                          | 241|   0|  241|          0|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |        Source Object        |    C Type    |
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+|ap_clk                          |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_rst                          |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_start                        |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|start_full_n                    |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_done                         |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_continue                     |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_idle                         |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|ap_ready                        |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|start_out                       |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|start_write                     |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>|  return value|
+|compressdStream_dout            |   in|   32|     ap_fifo|              compressdStream|       pointer|
+|compressdStream_empty_n         |   in|    1|     ap_fifo|              compressdStream|       pointer|
+|compressdStream_read            |  out|    1|     ap_fifo|              compressdStream|       pointer|
+|compressdStream_num_data_valid  |   in|    4|     ap_fifo|              compressdStream|       pointer|
+|compressdStream_fifo_cap        |   in|    4|     ap_fifo|              compressdStream|       pointer|
+|bestMatchStream_din             |  out|   32|     ap_fifo|              bestMatchStream|       pointer|
+|bestMatchStream_full_n          |   in|    1|     ap_fifo|              bestMatchStream|       pointer|
+|bestMatchStream_write           |  out|    1|     ap_fifo|              bestMatchStream|       pointer|
+|bestMatchStream_num_data_valid  |   in|   32|     ap_fifo|              bestMatchStream|       pointer|
+|bestMatchStream_fifo_cap        |   in|   32|     ap_fifo|              bestMatchStream|       pointer|
+|input_size_dout                 |   in|   32|     ap_fifo|                   input_size|       pointer|
+|input_size_empty_n              |   in|    1|     ap_fifo|                   input_size|       pointer|
+|input_size_read                 |  out|    1|     ap_fifo|                   input_size|       pointer|
+|input_size_num_data_valid       |   in|    3|     ap_fifo|                   input_size|       pointer|
+|input_size_fifo_cap             |   in|    3|     ap_fifo|                   input_size|       pointer|
+|input_size_c1_din               |  out|   32|     ap_fifo|                input_size_c1|       pointer|
+|input_size_c1_full_n            |   in|    1|     ap_fifo|                input_size_c1|       pointer|
+|input_size_c1_write             |  out|    1|     ap_fifo|                input_size_c1|       pointer|
+|input_size_c1_num_data_valid    |   in|    3|     ap_fifo|                input_size_c1|       pointer|
+|input_size_c1_fifo_cap          |   in|    3|     ap_fifo|                input_size_c1|       pointer|
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+

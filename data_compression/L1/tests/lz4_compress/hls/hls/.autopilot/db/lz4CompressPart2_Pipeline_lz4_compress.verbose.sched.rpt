@@ -1,0 +1,282 @@
+
+
+================================================================
+== Vitis HLS Report for 'lz4CompressPart2_Pipeline_lz4_compress'
+================================================================
+* Date:           Sat Nov  1 14:11:33 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  12.460 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- lz4_compress  |        ?|        ?|         2|          1|          1|     ?|       yes|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.18>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%inIdx = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 5 'alloca' 'inIdx' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%extra_match_len = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:121]   --->   Operation 6 'alloca' 'extra_match_len' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%lit_ending = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:120]   --->   Operation 7 'alloca' 'lit_ending' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%match_offset_plus_one = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:126]   --->   Operation 8 'alloca' 'match_offset_plus_one' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%write_lit_length = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:118]   --->   Operation 9 'alloca' 'write_lit_length' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%lit_length = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 10 'alloca' 'lit_length' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%match_length = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:117]   --->   Operation 11 'alloca' 'match_length' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%next_state = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 12 'alloca' 'next_state' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%compressedSize = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:114]   --->   Operation 13 'alloca' 'compressedSize' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%nextLenOffsetValue = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:125]   --->   Operation 14 'alloca' 'nextLenOffsetValue' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i64 %lenOffset_Stream, i64 666, i64 10, i64 18446744073709551615"   --->   Operation 15 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %lz4Out_eos, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %lz4Out, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %lit_outStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %lenOffset_Stream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%input_size_3_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %input_size_3" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:104]   --->   Operation 20 'read' 'input_size_3_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln114 = store i32 0, i32 %compressedSize" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:114]   --->   Operation 21 'store' 'store_ln114' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 22 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 0, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 22 'store' 'store_ln115' <Predicate = true> <Delay = 2.18>
+ST_1 : Operation 23 [1/1] (1.70ns)   --->   "%store_ln117 = store i16 0, i16 %match_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:117]   --->   Operation 23 'store' 'store_ln117' <Predicate = true> <Delay = 1.70>
+ST_1 : Operation 24 [1/1] (1.70ns)   --->   "%store_ln116 = store i16 0, i16 %lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 24 'store' 'store_ln116' <Predicate = true> <Delay = 1.70>
+ST_1 : Operation 25 [1/1] (1.70ns)   --->   "%store_ln118 = store i16 0, i16 %write_lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:118]   --->   Operation 25 'store' 'store_ln118' <Predicate = true> <Delay = 1.70>
+ST_1 : Operation 26 [1/1] (1.58ns)   --->   "%store_ln126 = store i16 0, i16 %match_offset_plus_one" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:126]   --->   Operation 26 'store' 'store_ln126' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 27 [1/1] (1.58ns)   --->   "%store_ln120 = store i1 0, i1 %lit_ending" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:120]   --->   Operation 27 'store' 'store_ln120' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 28 [1/1] (1.58ns)   --->   "%store_ln121 = store i1 0, i1 %extra_match_len" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:121]   --->   Operation 28 'store' 'store_ln121' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 29 [1/1] (1.58ns)   --->   "%store_ln129 = store i32 0, i32 %inIdx" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 29 'store' 'store_ln129' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 30 [1/1] (1.58ns)   --->   "%br_ln129 = br void %for.cond" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 30 'br' 'br_ln129' <Predicate = true> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 12.4>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%readOffsetFlag = phi i1 1, void %newFuncRoot, i1 %readOffsetFlag_4, void %if.end117"   --->   Operation 31 'phi' 'readOffsetFlag' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%inIdx_2 = load i32 %inIdx" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154]   --->   Operation 32 'load' 'inIdx_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%extra_match_len_1 = load i1 %extra_match_len" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:232]   --->   Operation 33 'load' 'extra_match_len_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%lit_ending_2 = load i1 %lit_ending" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:218]   --->   Operation 34 'load' 'lit_ending_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%write_lit_length_1 = load i16 %write_lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:216]   --->   Operation 35 'load' 'write_lit_length_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%match_length_11 = load i16 %match_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:236]   --->   Operation 36 'load' 'match_length_11' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%compressedSize_1 = load i32 %compressedSize" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:251]   --->   Operation 37 'load' 'compressedSize_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (2.55ns)   --->   "%icmp_ln129 = icmp_ult  i32 %inIdx_2, i32 %input_size_3_read" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 38 'icmp' 'icmp_ln129' <Predicate = true> <Delay = 2.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node or_ln129)   --->   "%xor_ln129 = xor i1 %readOffsetFlag, i1 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 39 'xor' 'xor_ln129' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 40 [1/1] (0.97ns) (out node of the LUT)   --->   "%or_ln129 = or i1 %icmp_ln129, i1 %xor_ln129" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 40 'or' 'or_ln129' <Predicate = true> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%br_ln129 = br i1 %or_ln129, void %for.end.exitStub, void %for.body" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 41 'br' 'br_ln129' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%specpipeline_ln130 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_7" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:130]   --->   Operation 42 'specpipeline' 'specpipeline_ln130' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%specloopname_ln129 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 43 'specloopname' 'specloopname_ln129' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%br_ln137 = br i1 %readOffsetFlag, void %if.end, void %if.then" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:137]   --->   Operation 44 'br' 'br_ln137' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] ( I:3.72ns O:3.72ns )   --->   "%nextLenOffsetValue_1 = read i64 @_ssdm_op_Read.ap_fifo.volatile.i64P0A, i64 %lenOffset_Stream" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:138]   --->   Operation 45 'read' 'nextLenOffsetValue_1' <Predicate = (or_ln129 & readOffsetFlag)> <Delay = 3.72> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.72> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 32> <FIFO>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%store_ln125 = store i64 %nextLenOffsetValue_1, i64 %nextLenOffsetValue" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:125]   --->   Operation 46 'store' 'store_ln125' <Predicate = (or_ln129 & readOffsetFlag)> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln140 = br void %if.end" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:140]   --->   Operation 47 'br' 'br_ln140' <Predicate = (or_ln129 & readOffsetFlag)> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%next_state_load = load i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:147]   --->   Operation 48 'load' 'next_state_load' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%nextLenOffsetValue_2 = load i64 %nextLenOffsetValue" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190]   --->   Operation 49 'load' 'nextLenOffsetValue_2' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%match_len_tmp = trunc i64 %nextLenOffsetValue_2" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:144]   --->   Operation 50 'trunc' 'match_len_tmp' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%match_off_tmp = partselect i16 @_ssdm_op_PartSelect.i16.i64.i32, i64 %nextLenOffsetValue_2, i32 16" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:145]   --->   Operation 51 'partselect' 'match_off_tmp' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (2.55ns)   --->   "%switch_ln147 = switch i32 %next_state_load, void %if.end113, i32 0, void %if.then5, i32 1, void %if.then59, i32 3, void %if.then74, i32 4, void %if.then83, i32 5, void %if.then88, i32 2, void %if.then95" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:147]   --->   Operation 52 'switch' 'switch_ln147' <Predicate = (or_ln129)> <Delay = 2.55>
+ST_2 : Operation 53 [1/1] (2.07ns)   --->   "%match_len_ge_255 = icmp_ugt  i16 %match_length_11, i16 254" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:235]   --->   Operation 53 'icmp' 'match_len_ge_255' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%trunc_ln236 = trunc i16 %match_length_11" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:236]   --->   Operation 54 'trunc' 'trunc_ln236' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (1.24ns)   --->   "%outValue_10 = select i1 %match_len_ge_255, i8 255, i8 %trunc_ln236" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:236]   --->   Operation 55 'select' 'outValue_10' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 1.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 56 [1/1] (2.07ns)   --->   "%match_length_17 = add i16 %match_length_11, i16 65281" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:239]   --->   Operation 56 'add' 'match_length_17' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 57 [1/1] (0.80ns)   --->   "%match_length_18 = select i1 %match_len_ge_255, i16 %match_length_17, i16 %match_length_11" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:238]   --->   Operation 57 'select' 'match_length_18' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 58 [1/1] (0.98ns)   --->   "%select_ln238_1 = select i1 %match_len_ge_255, i32 2, i32 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:238]   --->   Operation 58 'select' 'select_ln238_1' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 0.98> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (0.97ns)   --->   "%readOffsetFlag_3 = xor i1 %match_len_ge_255, i1 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:238]   --->   Operation 59 'xor' 'readOffsetFlag_3' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 %select_ln238_1, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 60 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 2.18>
+ST_2 : Operation 61 [1/1] (1.70ns)   --->   "%store_ln117 = store i16 %match_length_18, i16 %match_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:117]   --->   Operation 61 'store' 'store_ln117' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 1.70>
+ST_2 : Operation 62 [1/1] (2.18ns)   --->   "%br_ln244 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:244]   --->   Operation 62 'br' 'br_ln244' <Predicate = (or_ln129 & next_state_load == 2)> <Delay = 2.18>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%match_offset_plus_one_load_1 = load i16 %match_offset_plus_one" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:230]   --->   Operation 63 'load' 'match_offset_plus_one_load_1' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%outValue_9 = partselect i8 @_ssdm_op_PartSelect.i8.i16.i32, i16 %match_offset_plus_one_load_1, i32 8" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:230]   --->   Operation 64 'partselect' 'outValue_9' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.98ns)   --->   "%select_ln232 = select i1 %extra_match_len_1, i32 2, i32 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:232]   --->   Operation 65 'select' 'select_ln232' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 0.98> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 66 [1/1] (0.97ns)   --->   "%readOffsetFlag_2 = xor i1 %extra_match_len_1, i1 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:232]   --->   Operation 66 'xor' 'readOffsetFlag_2' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 67 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 %select_ln232, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 67 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 2.18>
+ST_2 : Operation 68 [1/1] (2.18ns)   --->   "%br_ln234 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:234]   --->   Operation 68 'br' 'br_ln234' <Predicate = (or_ln129 & next_state_load == 5)> <Delay = 2.18>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%match_offset_plus_one_load = load i16 %match_offset_plus_one" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:225]   --->   Operation 69 'load' 'match_offset_plus_one_load' <Predicate = (or_ln129 & next_state_load == 4)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%outValue_8 = trunc i16 %match_offset_plus_one_load" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:225]   --->   Operation 70 'trunc' 'outValue_8' <Predicate = (or_ln129 & next_state_load == 4)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 5, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 71 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 4)> <Delay = 2.18>
+ST_2 : Operation 72 [1/1] (2.18ns)   --->   "%br_ln229 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:229]   --->   Operation 72 'br' 'br_ln229' <Predicate = (or_ln129 & next_state_load == 4)> <Delay = 2.18>
+ST_2 : Operation 73 [1/1] ( I:3.50ns O:3.50ns )   --->   "%outValue_7 = read i8 @_ssdm_op_Read.ap_fifo.volatile.i8P0A, i8 %lit_outStream" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:215]   --->   Operation 73 'read' 'outValue_7' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 3.50> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.50> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 4096> <FIFO>
+ST_2 : Operation 74 [1/1] (2.07ns)   --->   "%write_lit_length_4 = add i16 %write_lit_length_1, i16 65535" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:216]   --->   Operation 74 'add' 'write_lit_length_4' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (2.07ns)   --->   "%icmp_ln218 = icmp_eq  i16 %write_lit_length_4, i16 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:218]   --->   Operation 75 'icmp' 'icmp_ln218' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (0.00ns) (grouped into LUT with out node next_state_2)   --->   "%select_ln219 = select i1 %lit_ending_2, i3 0, i3 4" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:219]   --->   Operation 76 'select' 'select_ln219' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (0.98ns) (out node of the LUT)   --->   "%next_state_2 = select i1 %icmp_ln218, i3 %select_ln219, i3 3" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:218]   --->   Operation 77 'select' 'next_state_2' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 0.98> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln218 = zext i3 %next_state_2" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:218]   --->   Operation 78 'zext' 'zext_ln218' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.97ns)   --->   "%readOffsetFlag_1 = and i1 %icmp_ln218, i1 %lit_ending_2" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:218]   --->   Operation 79 'and' 'readOffsetFlag_1' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 80 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 %zext_ln218, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 80 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 2.18>
+ST_2 : Operation 81 [1/1] (1.70ns)   --->   "%store_ln118 = store i16 %write_lit_length_4, i16 %write_lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:118]   --->   Operation 81 'store' 'store_ln118' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 1.70>
+ST_2 : Operation 82 [1/1] (2.18ns)   --->   "%br_ln223 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:223]   --->   Operation 82 'br' 'br_ln223' <Predicate = (or_ln129 & next_state_load == 3)> <Delay = 2.18>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%lit_length_load = load i16 %lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:205]   --->   Operation 83 'load' 'lit_length_load' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (2.07ns)   --->   "%lit_len_ge_255 = icmp_ugt  i16 %lit_length_load, i16 254" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:204]   --->   Operation 84 'icmp' 'lit_len_ge_255' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%trunc_ln205 = trunc i16 %lit_length_load" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:205]   --->   Operation 85 'trunc' 'trunc_ln205' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (1.24ns)   --->   "%outValue_6 = select i1 %lit_len_ge_255, i8 255, i8 %trunc_ln205" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:205]   --->   Operation 86 'select' 'outValue_6' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 1.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 87 [1/1] (2.07ns)   --->   "%lit_length_4 = add i16 %lit_length_load, i16 65281" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:208]   --->   Operation 87 'add' 'lit_length_4' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 88 [1/1] (0.80ns)   --->   "%lit_length_5 = select i1 %lit_len_ge_255, i16 %lit_length_4, i16 %lit_length_load" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:207]   --->   Operation 88 'select' 'lit_length_5' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 89 [1/1] (0.98ns)   --->   "%select_ln116 = select i1 %lit_len_ge_255, i32 1, i32 3" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 89 'select' 'select_ln116' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 0.98> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 90 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 %select_ln116, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 90 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 2.18>
+ST_2 : Operation 91 [1/1] (1.70ns)   --->   "%store_ln116 = store i16 %lit_length_5, i16 %lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 91 'store' 'store_ln116' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 1.70>
+ST_2 : Operation 92 [1/1] (2.18ns)   --->   "%br_ln214 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:214]   --->   Operation 92 'br' 'br_ln214' <Predicate = (or_ln129 & next_state_load == 1)> <Delay = 2.18>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%lit_length_6 = partselect i16 @_ssdm_op_PartSelect.i16.i64.i32.i32, i64 %nextLenOffsetValue_2, i32 32, i32 47" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:148]   --->   Operation 93 'partselect' 'lit_length_6' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%zext_ln153 = zext i16 %match_len_tmp" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:153]   --->   Operation 94 'zext' 'zext_ln153' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln153_1 = zext i16 %lit_length_6" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:153]   --->   Operation 95 'zext' 'zext_ln153_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (2.07ns)   --->   "%add_ln154_1 = add i17 %zext_ln153, i17 4" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154]   --->   Operation 96 'add' 'add_ln154_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "%zext_ln154 = zext i17 %add_ln154_1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154]   --->   Operation 97 'zext' 'zext_ln154' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 98 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln154 = add i32 %zext_ln154, i32 %zext_ln153_1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154]   --->   Operation 98 'add' 'add_ln154' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 99 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%inIdx_4 = add i32 %add_ln154, i32 %inIdx_2" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154]   --->   Operation 99 'add' 'inIdx_4' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 4.37> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 100 [1/1] (2.07ns)   --->   "%icmp_ln157 = icmp_eq  i16 %match_len_tmp, i16 777" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:157]   --->   Operation 100 'icmp' 'icmp_ln157' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 101 [1/1] (2.07ns)   --->   "%icmp_ln157_1 = icmp_eq  i16 %match_off_tmp, i16 777" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:157]   --->   Operation 101 'icmp' 'icmp_ln157_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 102 [1/1] (0.97ns)   --->   "%is_special_end = and i1 %icmp_ln157, i1 %icmp_ln157_1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:157]   --->   Operation 102 'and' 'is_special_end' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 103 [1/1] (0.00ns) (grouped into LUT with out node is_normal_end)   --->   "%or_ln158 = or i16 %match_off_tmp, i16 %match_len_tmp" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:158]   --->   Operation 103 'or' 'or_ln158' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 104 [1/1] (2.07ns) (out node of the LUT)   --->   "%is_normal_end = icmp_eq  i16 %or_ln158, i16 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:158]   --->   Operation 104 'icmp' 'is_normal_end' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 105 [1/1] (0.69ns)   --->   "%inIdx_5 = select i1 %is_special_end, i32 %input_size_3_read, i32 %inIdx_4" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:160]   --->   Operation 105 'select' 'inIdx_5' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 106 [1/1] (0.00ns) (grouped into LUT with out node lit_ending_3)   --->   "%or_ln167 = or i1 %lit_ending_2, i1 %is_normal_end" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:167]   --->   Operation 106 'or' 'or_ln167' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 107 [1/1] (0.97ns) (out node of the LUT)   --->   "%lit_ending_3 = or i1 %or_ln167, i1 %is_special_end" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:167]   --->   Operation 107 'or' 'lit_ending_3' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 108 [1/1] (2.07ns)   --->   "%lit_len_ge_15 = icmp_ugt  i16 %lit_length_6, i16 14" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:170]   --->   Operation 108 'icmp' 'lit_len_ge_15' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 109 [1/1] (2.07ns)   --->   "%lit_len_gt_0 = icmp_ne  i16 %lit_length_6, i16 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:171]   --->   Operation 109 'icmp' 'lit_len_gt_0' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 110 [1/1] (0.00ns) (grouped into LUT with out node select_ln173)   --->   "%trunc_ln = partselect i4 @_ssdm_op_PartSelect.i4.i64.i32.i32, i64 %nextLenOffsetValue_2, i32 32, i32 35" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:174]   --->   Operation 110 'partselect' 'trunc_ln' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 111 [1/1] (0.00ns) (grouped into LUT with out node select_ln173)   --->   "%select_ln174 = select i1 %lit_len_gt_0, i4 %trunc_ln, i4 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:174]   --->   Operation 111 'select' 'select_ln174' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 112 [1/1] (1.02ns) (out node of the LUT)   --->   "%select_ln173 = select i1 %lit_len_ge_15, i4 15, i4 %select_ln174" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:173]   --->   Operation 112 'select' 'select_ln173' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.02> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 113 [1/1] (2.07ns)   --->   "%lit_length_2 = add i16 %lit_length_6, i16 65521" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:177]   --->   Operation 113 'add' 'lit_length_2' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 114 [1/1] (0.80ns)   --->   "%lit_length_3 = select i1 %lit_len_ge_15, i16 %lit_length_2, i16 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:176]   --->   Operation 114 'select' 'lit_length_3' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 115 [1/1] (0.00ns) (grouped into LUT with out node next_state_1)   --->   "%select_ln176_1 = select i1 %lit_len_ge_15, i3 1, i3 3" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:176]   --->   Operation 115 'select' 'select_ln176_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 116 [1/1] (0.98ns) (out node of the LUT)   --->   "%next_state_1 = select i1 %lit_len_gt_0, i3 %select_ln176_1, i3 4" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:176]   --->   Operation 116 'select' 'next_state_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.98> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln116 = zext i3 %next_state_1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 117 'zext' 'zext_ln116' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (2.07ns)   --->   "%match_len_ge_15 = icmp_ugt  i16 %match_len_tmp, i16 14" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:189]   --->   Operation 118 'icmp' 'match_len_ge_15' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 119 [1/1] (0.00ns)   --->   "%trunc_ln190 = trunc i64 %nextLenOffsetValue_2" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190]   --->   Operation 119 'trunc' 'trunc_ln190' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 120 [1/1] (1.02ns)   --->   "%select_ln190 = select i1 %match_len_ge_15, i4 15, i4 %trunc_ln190" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190]   --->   Operation 120 'select' 'select_ln190' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.02> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 121 [1/1] (0.00ns)   --->   "%outValue = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i4.i4, i4 %select_ln173, i4 %select_ln190" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190]   --->   Operation 121 'bitconcatenate' 'outValue' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 122 [1/1] (2.07ns)   --->   "%add_ln193 = add i16 %match_len_tmp, i16 65521" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:193]   --->   Operation 122 'add' 'add_ln193' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 123 [1/1] (0.80ns)   --->   "%match_length_16 = select i1 %match_len_ge_15, i16 %add_ln193, i16 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:192]   --->   Operation 123 'select' 'match_length_16' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 124 [1/1] (2.07ns)   --->   "%match_offset_plus_one_1 = add i16 %match_off_tmp, i16 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:201]   --->   Operation 124 'add' 'match_offset_plus_one_1' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 125 [1/1] (2.18ns)   --->   "%store_ln115 = store i32 %zext_ln116, i32 %next_state" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115]   --->   Operation 125 'store' 'store_ln115' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.18>
+ST_2 : Operation 126 [1/1] (1.70ns)   --->   "%store_ln117 = store i16 %match_length_16, i16 %match_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:117]   --->   Operation 126 'store' 'store_ln117' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.70>
+ST_2 : Operation 127 [1/1] (1.70ns)   --->   "%store_ln116 = store i16 %lit_length_3, i16 %lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:116]   --->   Operation 127 'store' 'store_ln116' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.70>
+ST_2 : Operation 128 [1/1] (1.70ns)   --->   "%store_ln118 = store i16 %lit_length_6, i16 %write_lit_length" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:118]   --->   Operation 128 'store' 'store_ln118' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.70>
+ST_2 : Operation 129 [1/1] (1.58ns)   --->   "%store_ln126 = store i16 %match_offset_plus_one_1, i16 %match_offset_plus_one" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:126]   --->   Operation 129 'store' 'store_ln126' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.58>
+ST_2 : Operation 130 [1/1] (1.58ns)   --->   "%store_ln120 = store i1 %lit_ending_3, i1 %lit_ending" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:120]   --->   Operation 130 'store' 'store_ln120' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.58>
+ST_2 : Operation 131 [1/1] (1.58ns)   --->   "%store_ln121 = store i1 %match_len_ge_15, i1 %extra_match_len" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:121]   --->   Operation 131 'store' 'store_ln121' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.58>
+ST_2 : Operation 132 [1/1] (1.58ns)   --->   "%store_ln129 = store i32 %inIdx_5, i32 %inIdx" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 132 'store' 'store_ln129' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 1.58>
+ST_2 : Operation 133 [1/1] (2.18ns)   --->   "%br_ln203 = br void %if.end113" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:203]   --->   Operation 133 'br' 'br_ln203' <Predicate = (or_ln129 & next_state_load == 0)> <Delay = 2.18>
+ST_2 : Operation 134 [1/1] (0.00ns)   --->   "%readOffsetFlag_4 = phi i1 0, void %if.then5, i1 0, void %if.then59, i1 %readOffsetFlag_1, void %if.then74, i1 0, void %if.then83, i1 %readOffsetFlag_2, void %if.then88, i1 %readOffsetFlag_3, void %if.then95, i1 0, void %if.end"   --->   Operation 134 'phi' 'readOffsetFlag_4' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 135 [1/1] (2.55ns)   --->   "%should_write = icmp_ult  i32 %compressedSize_1, i32 %input_size_3_read" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:247]   --->   Operation 135 'icmp' 'should_write' <Predicate = (or_ln129)> <Delay = 2.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 136 [1/1] (0.00ns)   --->   "%br_ln248 = br i1 %should_write, void %if.end117, void %if.then115" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:248]   --->   Operation 136 'br' 'br_ln248' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 137 [1/1] (2.55ns)   --->   "%compressedSize_2 = add i32 %compressedSize_1, i32 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:251]   --->   Operation 137 'add' 'compressedSize_2' <Predicate = (or_ln129 & should_write)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 138 [1/1] (1.58ns)   --->   "%store_ln114 = store i32 %compressedSize_2, i32 %compressedSize" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:114]   --->   Operation 138 'store' 'store_ln114' <Predicate = (or_ln129 & should_write)> <Delay = 1.58>
+ST_2 : Operation 139 [1/1] (0.00ns)   --->   "%br_ln129 = br void %for.cond" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 139 'br' 'br_ln129' <Predicate = (or_ln129)> <Delay = 0.00>
+ST_2 : Operation 144 [1/1] (0.00ns)   --->   "%write_ln251 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %compressedSize_out, i32 %compressedSize_1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:251]   --->   Operation 144 'write' 'write_ln251' <Predicate = (!or_ln129)> <Delay = 0.00>
+ST_2 : Operation 145 [1/1] (1.58ns)   --->   "%ret_ln0 = ret"   --->   Operation 145 'ret' 'ret_ln0' <Predicate = (!or_ln129)> <Delay = 1.58>
+
+State 3 <SV = 2> <Delay = 3.47>
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "%outValue_5 = phi i8 %outValue, void %if.then5, i8 %outValue_6, void %if.then59, i8 %outValue_7, void %if.then74, i8 %outValue_8, void %if.then83, i8 %outValue_9, void %if.then88, i8 %outValue_10, void %if.then95, i8 0, void %if.end"   --->   Operation 140 'phi' 'outValue_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 141 [1/1] ( I:3.47ns O:3.47ns )   --->   "%write_ln249 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %lz4Out, i8 %outValue_5" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:249]   --->   Operation 141 'write' 'write_ln249' <Predicate = (should_write)> <Delay = 3.47> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.47> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_3 : Operation 142 [1/1] ( I:3.47ns O:3.47ns )   --->   "%write_ln250 = write void @_ssdm_op_Write.ap_fifo.volatile.i1P0A, i1 %lz4Out_eos, i1 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:250]   --->   Operation 142 'write' 'write_ln250' <Predicate = (should_write)> <Delay = 3.47> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.47> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "%br_ln252 = br void %if.end117" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:252]   --->   Operation 143 'br' 'br_ln252' <Predicate = (should_write)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15.000ns, clock uncertainty: 1.500ns.
+
+ <State 1>: 2.184ns
+The critical path consists of the following:
+	'alloca' operation 32 bit ('next_state', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115) [14]  (0.000 ns)
+	'store' operation 0 bit ('store_ln115', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115) of constant 0 on local variable 'next_state', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:115 [24]  (2.184 ns)
+
+ <State 2>: 12.460ns
+The critical path consists of the following:
+	'load' operation 32 bit ('inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154) on local variable 'inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129 [35]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln129', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129) [41]  (2.552 ns)
+	'or' operation 1 bit ('or_ln129', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129) [43]  (0.978 ns)
+	fifo read operation ('nextLenOffsetValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:138) on port 'lenOffset_Stream' (/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:138) [50]  (3.726 ns)
+	'store' operation 0 bit ('store_ln125', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:125) of variable 'nextLenOffsetValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:138 on local variable 'nextLenOffsetValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:125 [51]  (0.000 ns)
+	'load' operation 64 bit ('nextLenOffsetValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190) on local variable 'nextLenOffsetValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:125 [55]  (0.000 ns)
+	'add' operation 17 bit ('add_ln154_1', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154) [108]  (2.077 ns)
+	'add' operation 32 bit ('add_ln154', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154) [110]  (0.000 ns)
+	'add' operation 32 bit ('inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:154) [111]  (4.371 ns)
+	'select' operation 32 bit ('inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:160) [117]  (0.698 ns)
+	'store' operation 0 bit ('store_ln129', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129) of variable 'inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:160 on local variable 'inIdx', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129 [144]  (1.588 ns)
+
+ <State 3>: 3.477ns
+The critical path consists of the following:
+	'phi' operation 8 bit ('outValue') with incoming values : ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:236) ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:230) ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:225) ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:215) ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:205) ('outValue', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:190) [147]  (0.000 ns)
+	fifo write operation ('write_ln249', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:249) on port 'lz4Out' (/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:249) [152]  (3.477 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

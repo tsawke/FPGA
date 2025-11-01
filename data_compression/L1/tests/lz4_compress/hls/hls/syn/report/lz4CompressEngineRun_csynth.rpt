@@ -1,0 +1,154 @@
+
+
+================================================================
+== Vitis HLS Report for 'lz4CompressEngineRun'
+================================================================
+* Date:           Sat Nov  1 14:11:35 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  13.220 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+        |                                     |                                    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+        |               Instance              |               Module               |   min   |   max   |    min   |    max   | min | max |   Type   |
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+        |lzCompress_6_4_65536_6_1_2048_64_U0  |lzCompress_6_4_65536_6_1_2048_64_s  |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lzBestMatchFilter_6_65536_U0         |lzBestMatchFilter_6_65536_s         |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lzBooster_255_16384_64_U0            |lzBooster_255_16384_64_s            |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lz4Compress_4096_1_U0                |lz4Compress_4096_1_s                |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      2|    -|
+|FIFO             |        -|    -|     594|    405|    -|
+|Instance         |       58|    -|    2941|   6821|    0|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|      -|    -|
+|Register         |        -|    -|       -|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |       58|    0|    3535|   7228|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |       20|    0|       3|     13|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |               Instance              |               Module               | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |lz4Compress_4096_1_U0                |lz4Compress_4096_1_s                |        2|   0|   927|  1990|    0|
+    |lzBestMatchFilter_6_65536_U0         |lzBestMatchFilter_6_65536_s         |        0|   0|   470|   658|    0|
+    |lzBooster_255_16384_64_U0            |lzBooster_255_16384_64_s            |        8|   0|   470|   900|    0|
+    |lzCompress_6_4_65536_6_1_2048_64_U0  |lzCompress_6_4_65536_6_1_2048_64_s  |       48|   0|  1074|  3273|    0|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |Total                                |                                    |       58|   0|  2941|  6821|    0|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |        Name       | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |bestMatchStream_U  |        0|  99|   0|    -|     8|   32|      256|
+    |boosterStream_U    |        0|  99|   0|    -|     8|   32|      256|
+    |compressdStream_U  |        0|  99|   0|    -|     8|   32|      256|
+    |input_size_c1_U    |        0|  99|   0|    -|     2|   32|       64|
+    |input_size_c2_U    |        0|  99|   0|    -|     2|   32|       64|
+    |input_size_c_U     |        0|  99|   0|    -|     2|   32|       64|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |Total              |        0| 594|   0|    0|    30|  192|      960|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +--------------+----------+----+---+----+------------+------------+
+    | Variable Name| Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------+----------+----+---+----+------------+------------+
+    |ap_idle       |       and|   0|  0|   2|           1|           1|
+    +--------------+----------+----+---+----+------------+------------+
+    |Total         |          |   0|  0|   2|           1|           1|
+    +--------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+----------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------------------+-----+-----+------------+----------------------+--------------+
+|inStream_dout         |   in|    8|     ap_fifo|              inStream|       pointer|
+|inStream_empty_n      |   in|    1|     ap_fifo|              inStream|       pointer|
+|inStream_read         |  out|    1|     ap_fifo|              inStream|       pointer|
+|lz4Out_din            |  out|    8|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_full_n         |   in|    1|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_write          |  out|    1|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_eos_din        |  out|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4Out_eos_full_n     |   in|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4Out_eos_write      |  out|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4OutSize_din        |  out|   32|     ap_fifo|            lz4OutSize|       pointer|
+|lz4OutSize_full_n     |   in|    1|     ap_fifo|            lz4OutSize|       pointer|
+|lz4OutSize_write      |  out|    1|     ap_fifo|            lz4OutSize|       pointer|
+|max_lit_limit         |  out|   32|      ap_vld|         max_lit_limit|       pointer|
+|max_lit_limit_ap_vld  |  out|    1|      ap_vld|         max_lit_limit|       pointer|
+|input_size            |   in|   32|     ap_none|            input_size|        scalar|
+|core_idx              |   in|   32|     ap_none|              core_idx|        scalar|
+|ap_clk                |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_rst                |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_start              |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_done               |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_ready              |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_idle               |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
++----------------------+-----+-----+------------+----------------------+--------------+
+

@@ -1,0 +1,286 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x13F5DB420F0C4480",
+      "device": "xc7z020clg484-1",
+      "gen_directory": "../../../../project.gen/sources_1/bd/bd_0",
+      "name": "bd_0",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "hls_inst": ""
+    },
+    "interface_ports": {
+      "ap_ctrl": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:acc_handshake:1.0",
+        "vlnv": "xilinx.com:interface:acc_handshake_rtl:1.0",
+        "port_maps": {
+          "done": {
+            "physical_name": "ap_ctrl_done",
+            "direction": "O"
+          },
+          "idle": {
+            "physical_name": "ap_ctrl_idle",
+            "direction": "O"
+          },
+          "ready": {
+            "physical_name": "ap_ctrl_ready",
+            "direction": "O"
+          },
+          "start": {
+            "physical_name": "ap_ctrl_start",
+            "direction": "I"
+          }
+        }
+      },
+      "inStream": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:acc_fifo_read:1.0",
+        "vlnv": "xilinx.com:interface:acc_fifo_read_rtl:1.0",
+        "port_maps": {
+          "RD_DATA": {
+            "physical_name": "inStream_rd_data",
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "EMPTY_N": {
+            "physical_name": "inStream_empty_n",
+            "direction": "I"
+          },
+          "RD_EN": {
+            "physical_name": "inStream_rd_en",
+            "direction": "O"
+          }
+        }
+      },
+      "lz4Out": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:acc_fifo_write:1.0",
+        "vlnv": "xilinx.com:interface:acc_fifo_write_rtl:1.0",
+        "port_maps": {
+          "WR_DATA": {
+            "physical_name": "lz4Out_wr_data",
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "FULL_N": {
+            "physical_name": "lz4Out_full_n",
+            "direction": "I"
+          },
+          "WR_EN": {
+            "physical_name": "lz4Out_wr_en",
+            "direction": "O"
+          }
+        }
+      },
+      "lz4OutSize": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:acc_fifo_write:1.0",
+        "vlnv": "xilinx.com:interface:acc_fifo_write_rtl:1.0",
+        "port_maps": {
+          "WR_DATA": {
+            "physical_name": "lz4OutSize_wr_data",
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "FULL_N": {
+            "physical_name": "lz4OutSize_full_n",
+            "direction": "I"
+          },
+          "WR_EN": {
+            "physical_name": "lz4OutSize_wr_en",
+            "direction": "O"
+          }
+        }
+      },
+      "lz4Out_eos": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:acc_fifo_write:1.0",
+        "vlnv": "xilinx.com:interface:acc_fifo_write_rtl:1.0",
+        "port_maps": {
+          "WR_DATA": {
+            "physical_name": "lz4Out_eos_wr_data",
+            "direction": "O"
+          },
+          "FULL_N": {
+            "physical_name": "lz4Out_eos_full_n",
+            "direction": "I"
+          },
+          "WR_EN": {
+            "physical_name": "lz4Out_eos_wr_en",
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "ports": {
+      "ap_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "ap_rst",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "bd_0_ap_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "66000000.0"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "ap_rst": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "core_idx": {
+        "type": "data",
+        "direction": "I",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "input_size": {
+        "type": "data",
+        "direction": "I",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "max_lit_limit": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "max_lit_limit_ap_vld": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "hls_inst": {
+        "vlnv": "xilinx.com:hls:lz4CompressEngineRun:1.0",
+        "ip_revision": "2114329212",
+        "xci_name": "bd_0_hls_inst_0",
+        "xci_path": "ip/bd_0_hls_inst_0/bd_0_hls_inst_0.xci",
+        "inst_hier_path": "hls_inst"
+      }
+    },
+    "interface_nets": {
+      "ap_ctrl_0_1": {
+        "interface_ports": [
+          "ap_ctrl",
+          "hls_inst/ap_ctrl"
+        ]
+      },
+      "hls_inst_inStream": {
+        "interface_ports": [
+          "inStream",
+          "hls_inst/inStream"
+        ]
+      },
+      "hls_inst_lz4Out": {
+        "interface_ports": [
+          "lz4Out",
+          "hls_inst/lz4Out"
+        ]
+      },
+      "hls_inst_lz4OutSize": {
+        "interface_ports": [
+          "lz4OutSize",
+          "hls_inst/lz4OutSize"
+        ]
+      },
+      "hls_inst_lz4Out_eos": {
+        "interface_ports": [
+          "lz4Out_eos",
+          "hls_inst/lz4Out_eos"
+        ]
+      }
+    },
+    "nets": {
+      "ap_clk_0_1": {
+        "ports": [
+          "ap_clk",
+          "hls_inst/ap_clk"
+        ]
+      },
+      "ap_rst_0_1": {
+        "ports": [
+          "ap_rst",
+          "hls_inst/ap_rst"
+        ]
+      },
+      "core_idx_0_1": {
+        "ports": [
+          "core_idx",
+          "hls_inst/core_idx"
+        ]
+      },
+      "hls_inst_max_lit_limit": {
+        "ports": [
+          "hls_inst/max_lit_limit",
+          "max_lit_limit"
+        ]
+      },
+      "hls_inst_max_lit_limit_ap_vld": {
+        "ports": [
+          "hls_inst/max_lit_limit_ap_vld",
+          "max_lit_limit_ap_vld"
+        ]
+      },
+      "input_size_0_1": {
+        "ports": [
+          "input_size",
+          "hls_inst/input_size"
+        ]
+      }
+    }
+  }
+}

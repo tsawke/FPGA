@@ -1,0 +1,1064 @@
+
+
+================================================================
+== Vitis HLS Report for 'lz4CompressEngineRun'
+================================================================
+* Date:           Sat Nov  1 14:11:35 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  13.220 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+        |                                     |                                    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+        |               Instance              |               Module               |   min   |   max   |    min   |    max   | min | max |   Type   |
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+        |lzCompress_6_4_65536_6_1_2048_64_U0  |lzCompress_6_4_65536_6_1_2048_64_s  |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lzBestMatchFilter_6_65536_U0         |lzBestMatchFilter_6_65536_s         |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lzBooster_255_16384_64_U0            |lzBooster_255_16384_64_s            |        ?|        ?|         ?|         ?|    ?|    ?|        no|
+        |lz4Compress_4096_1_U0                |lz4Compress_4096_1_s                |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+        +-------------------------------------+------------------------------------+---------+---------+----------+----------+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      2|    -|
+|FIFO             |        -|    -|     594|    405|    -|
+|Instance         |       58|    -|    2941|   6821|    0|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|      -|    -|
+|Register         |        -|    -|       -|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |       58|    0|    3535|   7228|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |       20|    0|       3|     13|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |               Instance              |               Module               | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |lz4Compress_4096_1_U0                |lz4Compress_4096_1_s                |        2|   0|   927|  1990|    0|
+    |lzBestMatchFilter_6_65536_U0         |lzBestMatchFilter_6_65536_s         |        0|   0|   470|   658|    0|
+    |lzBooster_255_16384_64_U0            |lzBooster_255_16384_64_s            |        8|   0|   470|   900|    0|
+    |lzCompress_6_4_65536_6_1_2048_64_U0  |lzCompress_6_4_65536_6_1_2048_64_s  |       48|   0|  1074|  3273|    0|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+    |Total                                |                                    |       58|   0|  2941|  6821|    0|
+    +-------------------------------------+------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |        Name       | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |bestMatchStream_U  |        0|  99|   0|    -|     8|   32|      256|
+    |boosterStream_U    |        0|  99|   0|    -|     8|   32|      256|
+    |compressdStream_U  |        0|  99|   0|    -|     8|   32|      256|
+    |input_size_c1_U    |        0|  99|   0|    -|     2|   32|       64|
+    |input_size_c2_U    |        0|  99|   0|    -|     2|   32|       64|
+    |input_size_c_U     |        0|  99|   0|    -|     2|   32|       64|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+    |Total              |        0| 594|   0|    0|    30|  192|      960|
+    +-------------------+---------+----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +--------------+----------+----+---+----+------------+------------+
+    | Variable Name| Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------+----------+----+---+----+------------+------------+
+    |ap_idle       |       and|   0|  0|   2|           1|           1|
+    +--------------+----------+----+---+----+------------+------------+
+    |Total         |          |   0|  0|   2|           1|           1|
+    +--------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+----------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------------------+-----+-----+------------+----------------------+--------------+
+|inStream_dout         |   in|    8|     ap_fifo|              inStream|       pointer|
+|inStream_empty_n      |   in|    1|     ap_fifo|              inStream|       pointer|
+|inStream_read         |  out|    1|     ap_fifo|              inStream|       pointer|
+|lz4Out_din            |  out|    8|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_full_n         |   in|    1|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_write          |  out|    1|     ap_fifo|                lz4Out|       pointer|
+|lz4Out_eos_din        |  out|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4Out_eos_full_n     |   in|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4Out_eos_write      |  out|    1|     ap_fifo|            lz4Out_eos|       pointer|
+|lz4OutSize_din        |  out|   32|     ap_fifo|            lz4OutSize|       pointer|
+|lz4OutSize_full_n     |   in|    1|     ap_fifo|            lz4OutSize|       pointer|
+|lz4OutSize_write      |  out|    1|     ap_fifo|            lz4OutSize|       pointer|
+|max_lit_limit         |  out|   32|      ap_vld|         max_lit_limit|       pointer|
+|max_lit_limit_ap_vld  |  out|    1|      ap_vld|         max_lit_limit|       pointer|
+|input_size            |   in|   32|     ap_none|            input_size|        scalar|
+|core_idx              |   in|   32|     ap_none|              core_idx|        scalar|
+|ap_clk                |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_rst                |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_start              |   in|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_done               |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_ready              |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
+|ap_idle               |  out|    1|  ap_ctrl_hs|  lz4CompressEngineRun|  return value|
++----------------------+-----+-----+------------+----------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 8, States = { 1 2 3 4 5 6 7 8 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.63>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%input_size_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %input_size" [lz4_compress_test.cpp:65]   --->   Operation 9 'read' 'input_size_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%input_size_c2 = alloca i64 1" [lz4_compress_test.cpp:65]   --->   Operation 10 'alloca' 'input_size_c2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%input_size_c1 = alloca i64 1" [lz4_compress_test.cpp:65]   --->   Operation 11 'alloca' 'input_size_c1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%input_size_c = alloca i64 1" [lz4_compress_test.cpp:65]   --->   Operation 12 'alloca' 'input_size_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%compressdStream = alloca i64 1" [lz4_compress_test.cpp:54]   --->   Operation 13 'alloca' 'compressdStream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%bestMatchStream = alloca i64 1" [lz4_compress_test.cpp:55]   --->   Operation 14 'alloca' 'bestMatchStream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%boosterStream = alloca i64 1" [lz4_compress_test.cpp:56]   --->   Operation 15 'alloca' 'boosterStream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_1 : Operation 16 [2/2] (3.63ns)   --->   "%call_ln66 = call void @lzCompress<6, 4, 65536, 6, 1, 2048, 64>, i8 %inStream, i32 %compressdStream, i32 %input_size_read, i32 %input_size_c2" [lz4_compress_test.cpp:66]   --->   Operation 16 'call' 'call_ln66' <Predicate = true> <Delay = 3.63> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 17 [1/2] (0.00ns)   --->   "%call_ln66 = call void @lzCompress<6, 4, 65536, 6, 1, 2048, 64>, i8 %inStream, i32 %compressdStream, i32 %input_size_read, i32 %input_size_c2" [lz4_compress_test.cpp:66]   --->   Operation 17 'call' 'call_ln66' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 18 [2/2] (0.00ns)   --->   "%call_ln68 = call void @lzBestMatchFilter<6, 65536>, i32 %compressdStream, i32 %bestMatchStream, i32 %input_size_c2, i32 %input_size_c1" [lz4_compress_test.cpp:68]   --->   Operation 18 'call' 'call_ln68' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 19 [1/2] (0.00ns)   --->   "%call_ln68 = call void @lzBestMatchFilter<6, 65536>, i32 %compressdStream, i32 %bestMatchStream, i32 %input_size_c2, i32 %input_size_c1" [lz4_compress_test.cpp:68]   --->   Operation 19 'call' 'call_ln68' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 20 [2/2] (0.00ns)   --->   "%call_ln69 = call void @lzBooster<255, 16384, 64>, i32 %bestMatchStream, i32 %boosterStream, i32 %input_size_c1, i32 %input_size_c" [lz4_compress_test.cpp:69]   --->   Operation 20 'call' 'call_ln69' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 21 [1/2] (0.00ns)   --->   "%call_ln69 = call void @lzBooster<255, 16384, 64>, i32 %bestMatchStream, i32 %boosterStream, i32 %input_size_c1, i32 %input_size_c" [lz4_compress_test.cpp:69]   --->   Operation 21 'call' 'call_ln69' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 22 [2/2] (0.00ns)   --->   "%call_ln70 = call void @lz4Compress<4096, 1>, i32 %boosterStream, i8 %lz4Out, i32 %max_lit_limit, i32 %input_size_c, i1 %lz4Out_eos, i32 %lz4OutSize" [lz4_compress_test.cpp:70]   --->   Operation 22 'call' 'call_ln70' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 8 <SV = 7> <Delay = 0.00>
+ST_8 : Operation 23 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @input_size_c2_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %input_size_c2, i32 %input_size_c2" [lz4_compress_test.cpp:65]   --->   Operation 23 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln65 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size_c2, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0, i32 0" [lz4_compress_test.cpp:65]   --->   Operation 24 'specinterface' 'specinterface_ln65' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 25 [1/1] (0.00ns)   --->   "%empty_37 = specchannel i32 @_ssdm_op_SpecChannel, void @input_size_c1_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %input_size_c1, i32 %input_size_c1" [lz4_compress_test.cpp:65]   --->   Operation 25 'specchannel' 'empty_37' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln65 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size_c1, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0, i32 0" [lz4_compress_test.cpp:65]   --->   Operation 26 'specinterface' 'specinterface_ln65' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 27 [1/1] (0.00ns)   --->   "%empty_38 = specchannel i32 @_ssdm_op_SpecChannel, void @input_size_c_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %input_size_c, i32 %input_size_c" [lz4_compress_test.cpp:65]   --->   Operation 27 'specchannel' 'empty_38' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln65 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0, i32 0" [lz4_compress_test.cpp:65]   --->   Operation 28 'specinterface' 'specinterface_ln65' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 29 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln65 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_7" [lz4_compress_test.cpp:65]   --->   Operation 29 'specdataflowpipeline' 'specdataflowpipeline_ln65' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 30 [1/1] (0.00ns)   --->   "%spectopmodule_ln47 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_4" [lz4_compress_test.cpp:47]   --->   Operation 30 'spectopmodule' 'spectopmodule_ln47' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 32 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %inStream"   --->   Operation 32 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 33 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %lz4Out, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 33 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 34 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %lz4Out"   --->   Operation 34 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %lz4Out_eos, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 36 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %lz4Out_eos"   --->   Operation 36 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lz4OutSize, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %lz4OutSize"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 39 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %max_lit_limit"   --->   Operation 39 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %max_lit_limit, void @empty_0, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 41 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_size"   --->   Operation 41 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size, void @empty_0, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 43 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %core_idx"   --->   Operation 43 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %core_idx, void @empty_0, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 45 [1/1] (0.00ns)   --->   "%empty_39 = specchannel i32 @_ssdm_op_SpecChannel, void @compressdStream_str, i32 1, void @p_str, void @p_str, i32 8, i32 8, i32 %compressdStream, i32 %compressdStream"   --->   Operation 45 'specchannel' 'empty_39' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 46 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %compressdStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 46 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 47 [1/1] (0.00ns)   --->   "%empty_40 = specchannel i32 @_ssdm_op_SpecChannel, void @bestMatchStream_str, i32 1, void @p_str, void @p_str, i32 8, i32 8, i32 %bestMatchStream, i32 %bestMatchStream"   --->   Operation 47 'specchannel' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %bestMatchStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 49 [1/1] (0.00ns)   --->   "%empty_41 = specchannel i32 @_ssdm_op_SpecChannel, void @boosterStream_str, i32 1, void @p_str, void @p_str, i32 8, i32 8, i32 %boosterStream, i32 %boosterStream"   --->   Operation 49 'specchannel' 'empty_41' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %boosterStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 51 [1/1] (0.00ns)   --->   "%specmemcore_ln62 = specmemcore void @_ssdm_op_SpecMemCore, i32 %compressdStream, i64 666, i64 10, i64 18446744073709551615" [lz4_compress_test.cpp:62]   --->   Operation 51 'specmemcore' 'specmemcore_ln62' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 52 [1/1] (0.00ns)   --->   "%specmemcore_ln63 = specmemcore void @_ssdm_op_SpecMemCore, i32 %boosterStream, i64 666, i64 10, i64 18446744073709551615" [lz4_compress_test.cpp:63]   --->   Operation 52 'specmemcore' 'specmemcore_ln63' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 53 [1/2] (0.00ns)   --->   "%call_ln70 = call void @lz4Compress<4096, 1>, i32 %boosterStream, i8 %lz4Out, i32 %max_lit_limit, i32 %input_size_c, i1 %lz4Out_eos, i32 %lz4OutSize" [lz4_compress_test.cpp:70]   --->   Operation 53 'call' 'call_ln70' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+ST_8 : Operation 54 [1/1] (0.00ns)   --->   "%ret_ln72 = ret" [lz4_compress_test.cpp:72]   --->   Operation 54 'ret' 'ret_ln72' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ inStream]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ lz4Out]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ lz4Out_eos]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ lz4OutSize]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ max_lit_limit]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ input_size]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ core_idx]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+input_size_read           (read                ) [ 001000000]
+input_size_c2             (alloca              ) [ 011111111]
+input_size_c1             (alloca              ) [ 001111111]
+input_size_c              (alloca              ) [ 001111111]
+compressdStream           (alloca              ) [ 011111111]
+bestMatchStream           (alloca              ) [ 001111111]
+boosterStream             (alloca              ) [ 001111111]
+call_ln66                 (call                ) [ 000000000]
+call_ln68                 (call                ) [ 000000000]
+call_ln69                 (call                ) [ 000000000]
+empty                     (specchannel         ) [ 000000000]
+specinterface_ln65        (specinterface       ) [ 000000000]
+empty_37                  (specchannel         ) [ 000000000]
+specinterface_ln65        (specinterface       ) [ 000000000]
+empty_38                  (specchannel         ) [ 000000000]
+specinterface_ln65        (specinterface       ) [ 000000000]
+specdataflowpipeline_ln65 (specdataflowpipeline) [ 000000000]
+spectopmodule_ln47        (spectopmodule       ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+empty_39                  (specchannel         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+empty_40                  (specchannel         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+empty_41                  (specchannel         ) [ 000000000]
+specinterface_ln0         (specinterface       ) [ 000000000]
+specmemcore_ln62          (specmemcore         ) [ 000000000]
+specmemcore_ln63          (specmemcore         ) [ 000000000]
+call_ln70                 (call                ) [ 000000000]
+ret_ln72                  (ret                 ) [ 000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="inStream">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="inStream"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="lz4Out">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lz4Out"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="lz4Out_eos">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lz4Out_eos"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="lz4OutSize">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lz4OutSize"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="max_lit_limit">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_lit_limit"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="input_size">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_size"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="core_idx">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="core_idx"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lzCompress<6, 4, 65536, 6, 1, 2048, 64>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lzBestMatchFilter<6, 65536>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lzBooster<255, 16384, 64>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lz4Compress<4096, 1>"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecChannel"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_size_c2_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ap_fifo_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_size_c1_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_size_c_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="compressdStream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="bestMatchStream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="boosterStream_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1004" name="input_size_c2_fu_80">
+<pin_list>
+<pin id="81" dir="0" index="0" bw="1" slack="0"/>
+<pin id="82" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="input_size_c2/1 "/>
+</bind>
+</comp>
+
+<comp id="84" class="1004" name="input_size_c1_fu_84">
+<pin_list>
+<pin id="85" dir="0" index="0" bw="1" slack="0"/>
+<pin id="86" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="input_size_c1/1 "/>
+</bind>
+</comp>
+
+<comp id="88" class="1004" name="input_size_c_fu_88">
+<pin_list>
+<pin id="89" dir="0" index="0" bw="1" slack="0"/>
+<pin id="90" dir="1" index="1" bw="32" slack="4"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="input_size_c/1 "/>
+</bind>
+</comp>
+
+<comp id="92" class="1004" name="compressdStream_fu_92">
+<pin_list>
+<pin id="93" dir="0" index="0" bw="1" slack="0"/>
+<pin id="94" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="compressdStream/1 "/>
+</bind>
+</comp>
+
+<comp id="96" class="1004" name="bestMatchStream_fu_96">
+<pin_list>
+<pin id="97" dir="0" index="0" bw="1" slack="0"/>
+<pin id="98" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="bestMatchStream/1 "/>
+</bind>
+</comp>
+
+<comp id="100" class="1004" name="boosterStream_fu_100">
+<pin_list>
+<pin id="101" dir="0" index="0" bw="1" slack="0"/>
+<pin id="102" dir="1" index="1" bw="32" slack="4"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="boosterStream/1 "/>
+</bind>
+</comp>
+
+<comp id="104" class="1004" name="input_size_read_read_fu_104">
+<pin_list>
+<pin id="105" dir="0" index="0" bw="32" slack="0"/>
+<pin id="106" dir="0" index="1" bw="32" slack="0"/>
+<pin id="107" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="input_size_read/1 "/>
+</bind>
+</comp>
+
+<comp id="110" class="1004" name="grp_lzCompress_6_4_65536_6_1_2048_64_s_fu_110">
+<pin_list>
+<pin id="111" dir="0" index="0" bw="0" slack="0"/>
+<pin id="112" dir="0" index="1" bw="8" slack="0"/>
+<pin id="113" dir="0" index="2" bw="32" slack="0"/>
+<pin id="114" dir="0" index="3" bw="32" slack="0"/>
+<pin id="115" dir="0" index="4" bw="32" slack="0"/>
+<pin id="116" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln66/1 "/>
+</bind>
+</comp>
+
+<comp id="120" class="1004" name="grp_lzBestMatchFilter_6_65536_s_fu_120">
+<pin_list>
+<pin id="121" dir="0" index="0" bw="0" slack="0"/>
+<pin id="122" dir="0" index="1" bw="32" slack="2"/>
+<pin id="123" dir="0" index="2" bw="32" slack="2"/>
+<pin id="124" dir="0" index="3" bw="32" slack="2"/>
+<pin id="125" dir="0" index="4" bw="32" slack="2"/>
+<pin id="126" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln68/3 "/>
+</bind>
+</comp>
+
+<comp id="128" class="1004" name="grp_lzBooster_255_16384_64_s_fu_128">
+<pin_list>
+<pin id="129" dir="0" index="0" bw="0" slack="0"/>
+<pin id="130" dir="0" index="1" bw="32" slack="4"/>
+<pin id="131" dir="0" index="2" bw="32" slack="4"/>
+<pin id="132" dir="0" index="3" bw="32" slack="4"/>
+<pin id="133" dir="0" index="4" bw="32" slack="4"/>
+<pin id="134" dir="1" index="5" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln69/5 "/>
+</bind>
+</comp>
+
+<comp id="136" class="1004" name="grp_lz4Compress_4096_1_s_fu_136">
+<pin_list>
+<pin id="137" dir="0" index="0" bw="0" slack="0"/>
+<pin id="138" dir="0" index="1" bw="32" slack="6"/>
+<pin id="139" dir="0" index="2" bw="8" slack="0"/>
+<pin id="140" dir="0" index="3" bw="32" slack="0"/>
+<pin id="141" dir="0" index="4" bw="32" slack="6"/>
+<pin id="142" dir="0" index="5" bw="1" slack="0"/>
+<pin id="143" dir="0" index="6" bw="32" slack="0"/>
+<pin id="144" dir="1" index="7" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln70/7 "/>
+</bind>
+</comp>
+
+<comp id="150" class="1005" name="input_size_read_reg_150">
+<pin_list>
+<pin id="151" dir="0" index="0" bw="32" slack="1"/>
+<pin id="152" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="input_size_read "/>
+</bind>
+</comp>
+
+<comp id="155" class="1005" name="input_size_c2_reg_155">
+<pin_list>
+<pin id="156" dir="0" index="0" bw="32" slack="0"/>
+<pin id="157" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opset="input_size_c2 "/>
+</bind>
+</comp>
+
+<comp id="161" class="1005" name="input_size_c1_reg_161">
+<pin_list>
+<pin id="162" dir="0" index="0" bw="32" slack="2"/>
+<pin id="163" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opset="input_size_c1 "/>
+</bind>
+</comp>
+
+<comp id="167" class="1005" name="input_size_c_reg_167">
+<pin_list>
+<pin id="168" dir="0" index="0" bw="32" slack="4"/>
+<pin id="169" dir="1" index="1" bw="32" slack="4"/>
+</pin_list>
+<bind>
+<opset="input_size_c "/>
+</bind>
+</comp>
+
+<comp id="173" class="1005" name="compressdStream_reg_173">
+<pin_list>
+<pin id="174" dir="0" index="0" bw="32" slack="0"/>
+<pin id="175" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opset="compressdStream "/>
+</bind>
+</comp>
+
+<comp id="179" class="1005" name="bestMatchStream_reg_179">
+<pin_list>
+<pin id="180" dir="0" index="0" bw="32" slack="2"/>
+<pin id="181" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opset="bestMatchStream "/>
+</bind>
+</comp>
+
+<comp id="185" class="1005" name="boosterStream_reg_185">
+<pin_list>
+<pin id="186" dir="0" index="0" bw="32" slack="4"/>
+<pin id="187" dir="1" index="1" bw="32" slack="4"/>
+</pin_list>
+<bind>
+<opset="boosterStream "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="83"><net_src comp="16" pin="0"/><net_sink comp="80" pin=0"/></net>
+
+<net id="87"><net_src comp="16" pin="0"/><net_sink comp="84" pin=0"/></net>
+
+<net id="91"><net_src comp="16" pin="0"/><net_sink comp="88" pin=0"/></net>
+
+<net id="95"><net_src comp="16" pin="0"/><net_sink comp="92" pin=0"/></net>
+
+<net id="99"><net_src comp="16" pin="0"/><net_sink comp="96" pin=0"/></net>
+
+<net id="103"><net_src comp="16" pin="0"/><net_sink comp="100" pin=0"/></net>
+
+<net id="108"><net_src comp="14" pin="0"/><net_sink comp="104" pin=0"/></net>
+
+<net id="109"><net_src comp="10" pin="0"/><net_sink comp="104" pin=1"/></net>
+
+<net id="117"><net_src comp="18" pin="0"/><net_sink comp="110" pin=0"/></net>
+
+<net id="118"><net_src comp="0" pin="0"/><net_sink comp="110" pin=1"/></net>
+
+<net id="119"><net_src comp="104" pin="2"/><net_sink comp="110" pin=3"/></net>
+
+<net id="127"><net_src comp="20" pin="0"/><net_sink comp="120" pin=0"/></net>
+
+<net id="135"><net_src comp="22" pin="0"/><net_sink comp="128" pin=0"/></net>
+
+<net id="145"><net_src comp="24" pin="0"/><net_sink comp="136" pin=0"/></net>
+
+<net id="146"><net_src comp="2" pin="0"/><net_sink comp="136" pin=2"/></net>
+
+<net id="147"><net_src comp="8" pin="0"/><net_sink comp="136" pin=3"/></net>
+
+<net id="148"><net_src comp="4" pin="0"/><net_sink comp="136" pin=5"/></net>
+
+<net id="149"><net_src comp="6" pin="0"/><net_sink comp="136" pin=6"/></net>
+
+<net id="153"><net_src comp="104" pin="2"/><net_sink comp="150" pin=0"/></net>
+
+<net id="154"><net_src comp="150" pin="1"/><net_sink comp="110" pin=3"/></net>
+
+<net id="158"><net_src comp="80" pin="1"/><net_sink comp="155" pin=0"/></net>
+
+<net id="159"><net_src comp="155" pin="1"/><net_sink comp="110" pin=4"/></net>
+
+<net id="160"><net_src comp="155" pin="1"/><net_sink comp="120" pin=3"/></net>
+
+<net id="164"><net_src comp="84" pin="1"/><net_sink comp="161" pin=0"/></net>
+
+<net id="165"><net_src comp="161" pin="1"/><net_sink comp="120" pin=4"/></net>
+
+<net id="166"><net_src comp="161" pin="1"/><net_sink comp="128" pin=3"/></net>
+
+<net id="170"><net_src comp="88" pin="1"/><net_sink comp="167" pin=0"/></net>
+
+<net id="171"><net_src comp="167" pin="1"/><net_sink comp="128" pin=4"/></net>
+
+<net id="172"><net_src comp="167" pin="1"/><net_sink comp="136" pin=4"/></net>
+
+<net id="176"><net_src comp="92" pin="1"/><net_sink comp="173" pin=0"/></net>
+
+<net id="177"><net_src comp="173" pin="1"/><net_sink comp="110" pin=2"/></net>
+
+<net id="178"><net_src comp="173" pin="1"/><net_sink comp="120" pin=1"/></net>
+
+<net id="182"><net_src comp="96" pin="1"/><net_sink comp="179" pin=0"/></net>
+
+<net id="183"><net_src comp="179" pin="1"/><net_sink comp="120" pin=2"/></net>
+
+<net id="184"><net_src comp="179" pin="1"/><net_sink comp="128" pin=1"/></net>
+
+<net id="188"><net_src comp="100" pin="1"/><net_sink comp="185" pin=0"/></net>
+
+<net id="189"><net_src comp="185" pin="1"/><net_sink comp="128" pin=2"/></net>
+
+<net id="190"><net_src comp="185" pin="1"/><net_sink comp="136" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: lz4Out | {7 8 }
+	Port: lz4Out_eos | {7 8 }
+	Port: lz4OutSize | {7 8 }
+	Port: max_lit_limit | {7 8 }
+ - Input state : 
+	Port: lz4CompressEngineRun : inStream | {1 2 }
+	Port: lz4CompressEngineRun : input_size | {1 }
+  - Chain level:
+	State 1
+		call_ln66 : 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-----------------------------------------------|---------|---------|---------|---------|---------|
+| Operation|                Functional Unit                |   BRAM  |  Delay  |    FF   |   LUT   |   URAM  |
+|----------|-----------------------------------------------|---------|---------|---------|---------|---------|
+|          | grp_lzCompress_6_4_65536_6_1_2048_64_s_fu_110 |    48   |  11.116 |   886   |   2745  |    0    |
+|   call   |     grp_lzBestMatchFilter_6_65536_s_fu_120    |    0    |    0    |   645   |   384   |    0    |
+|          |      grp_lzBooster_255_16384_64_s_fu_128      |    8    |  5.2412 |   450   |   541   |    0    |
+|          |        grp_lz4Compress_4096_1_s_fu_136        |    0    |  1.588  |   1065  |   1106  |    0    |
+|----------|-----------------------------------------------|---------|---------|---------|---------|---------|
+|   read   |          input_size_read_read_fu_104          |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------------------|---------|---------|---------|---------|---------|
+|   Total  |                                               |    56   | 17.9452 |   3046  |   4776  |    0    |
+|----------|-----------------------------------------------|---------|---------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-----------------------+--------+
+|                       |   FF   |
++-----------------------+--------+
+|bestMatchStream_reg_179|   32   |
+| boosterStream_reg_185 |   32   |
+|compressdStream_reg_173|   32   |
+| input_size_c1_reg_161 |   32   |
+| input_size_c2_reg_155 |   32   |
+|  input_size_c_reg_167 |   32   |
+|input_size_read_reg_150|   32   |
++-----------------------+--------+
+|         Total         |   224  |
++-----------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-----------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                      Comp                     |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|-----------------------------------------------|------|------|------|--------||---------||---------||---------|
+| grp_lzCompress_6_4_65536_6_1_2048_64_s_fu_110 |  p3  |   2  |  32  |   64   ||    0    ||    9    |
+|-----------------------------------------------|------|------|------|--------||---------||---------||---------|
+|                     Total                     |      |      |      |   64   ||  1.588  ||    0    ||    9    |
+|-----------------------------------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+--------+
+|           |  BRAM  |  Delay |   FF   |   LUT  |  URAM  |
++-----------+--------+--------+--------+--------+--------+
+|  Function |   56   |   17   |  3046  |  4776  |    0   |
+|   Memory  |    -   |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    1   |    0   |    9   |    -   |
+|  Register |    -   |    -   |   224  |    -   |    -   |
++-----------+--------+--------+--------+--------+--------+
+|   Total   |   56   |   19   |  3270  |  4785  |    0   |
++-----------+--------+--------+--------+--------+--------+

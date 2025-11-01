@@ -1,0 +1,695 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 300, Column: 2 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - Callee:          'void xf::compression::details::lz4CompressPart1<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, unsigned int, unsigned int*, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 50, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 302, Column: 5 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - Callee:          'xf::compression::details::lz4CompressPart2(hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 109, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 66, Column: 2 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                       Line: 58, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 68, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBestMatchFilter<6, 65536>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 313, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 69, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBooster<255, 16384, 64>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 559, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 70, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            reflow-pragma-preprocess
+Name:            IgnoreDepOnScalar
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 133, Column: 9 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart2ERN3hls6streamIhLi0EEERNS3_I7ap_uintILi64EELi0EEERNS3_IS6_ILi8EELi0EEERNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - String:          'Ignoring dependence pragma on local scalar variable '''
+  - Value:           match_length
+  - String:          '''.'
+...
+--- !Missed
+Pass:            reflow-pragma-preprocess
+Name:            IgnoreDepOnScalar
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 132, Column: 9 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart2ERN3hls6streamIhLi0EEERNS3_I7ap_uintILi64EELi0EEERNS3_IS6_ILi8EELi0EEERNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - String:          'Ignoring dependence pragma on local scalar variable '''
+  - Value:           lit_length
+  - String:          '''.'
+...
+--- !Missed
+Pass:            reflow-pragma-preprocess
+Name:            IgnoreDepOnScalar
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 131, Column: 9 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart2ERN3hls6streamIhLi0EEERNS3_I7ap_uintILi64EELi0EEERNS3_IS6_ILi8EELi0EEERNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - String:          'Ignoring dependence pragma on local scalar variable '''
+  - Value:           match_offset
+  - String:          '''.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 332, Column: 27 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_332_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 341, Column: 27 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_341_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 93, Column: 26 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_93_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 117, Column: 27 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 129, Column: 27 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_129_5
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 134, Column: 31 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 313, Column: 0 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_332_2
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:332:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzBestMatchFilter<6, 65536>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 313, Column: 0 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_341_3
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:341:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzBestMatchFilter<6, 65536>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 313, Column: 0 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_321_1
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:321:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzBestMatchFilter<6, 65536>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_93_3
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:93:26'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:117:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_129_5
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:129:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_134_6
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:134:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 58, Column: 0 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_68_1
+  - String:          ''' ('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz_compress.hpp:68:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '6'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 300, Column: 2 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - Callee:          'void xf::compression::details::lz4CompressPart1<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, unsigned int, unsigned int*, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 50, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 302, Column: 5 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - Callee:          'xf::compression::details::lz4CompressPart2(hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 109, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 66, Column: 2 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                       Line: 58, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 68, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBestMatchFilter<6, 65536>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 313, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 69, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBooster<255, 16384, 64>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 559, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 70, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_lz4CompressEngineRun_ir
+Args:            
+  - Callee:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_lz4CompressEngineRun_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                   Line: 80, Column: 13 }
+Function:        _ZN2xf11compression10lzCompressILi6ELi4ELi65536ELi6ELi1ELi2048ELi64EEEvRN3hls6streamI7ap_uintILi8EELi0EEERNS3_IS4_ILi32EELi0EEEj
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          present_window
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                   Line: 317, Column: 18 }
+Function:        _ZN2xf11compression17lzBestMatchFilterILi6ELi65536EEEvRN3hls6streamI7ap_uintILi32EELi0EEES7_j
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          compare_window
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 129, Column: 5 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart2ERN3hls6streamIhLi0EEERNS3_I7ap_uintILi64EELi0EEERNS3_IS6_ILi8EELi0EEERNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        lz4_compress
+  - String:          ' '
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129:5'
+  - String:          ' '
+  - Function:        'xf::compression::details::lz4CompressPart2(hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 109, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 59, Column: 5 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart1ILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS4_IhLi0EEERNS4_IS5_ILi64EELi0EEEjPjj
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        lz4_divide
+  - String:          ' '
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:59:5'
+  - String:          ' '
+  - Function:        'void xf::compression::details::lz4CompressPart1<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, unsigned int, unsigned int*, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 50, Column: 0 }
+  - String:          ' '
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 129, Column: 5 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart2ERN3hls6streamIhLi0EEERNS3_I7ap_uintILi64EELi0EEERNS3_IS6_ILi8EELi0EEERNS3_IbLi0EEERNS3_IjLi0EEEj
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        lz4_compress
+  - String:          '''('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129:5'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 59, Column: 5 }
+Function:        _ZN2xf11compression7detailsL16lz4CompressPart1ILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS4_IhLi0EEERNS4_IS5_ILi64EELi0EEEjPjj
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        lz4_divide
+  - String:          '''('
+  - LoopLoc:         '/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:59:5'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 300, Column: 2 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj.1
+Args:            
+  - Callee:          'void xf::compression::details::lz4CompressPart1<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, unsigned int, unsigned int*, unsigned int) (.1)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 50, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int) (.1)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                   Line: 302, Column: 5 }
+Function:        _ZN2xf11compressionL11lz4CompressILi4096ELi1EEEvRN3hls6streamI7ap_uintILi32EELi0EEERNS3_IS4_ILi8EELi0EEEPjjRNS3_IbLi0EEERNS3_IjLi0EEEj.1
+Args:            
+  - Callee:          'xf::compression::details::lz4CompressPart2(hls::stream<unsigned char, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 109, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int) (.1)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 66, Column: 2 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzCompress<6, 4, 65536, 6, 1, 2048, 64>(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp, 
+                       Line: 58, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 68, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBestMatchFilter<6, 65536>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 313, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 69, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lzBooster<255, 16384, 64>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, unsigned int)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp, 
+                       Line: 559, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: lz4_compress_test.cpp, Line: 70, Column: 5 }
+Function:        _Z20lz4CompressEngineRunRN3hls6streamI7ap_uintILi8EELi0EEES4_RNS0_IbLi0EEERNS0_IjLi0EEEPjjj
+Args:            
+  - Callee:          'void xf::compression::lz4Compress<4096, 1>(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<8>, 0>&, unsigned int*, unsigned int, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int) (.1)'
+    DebugLoc:        { File: /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp, 
+                       Line: 290, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'lz4CompressEngineRun(hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<8>, 0>&, hls::stream<bool, 0>&, hls::stream<unsigned int, 0>&, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: lz4_compress_test.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...

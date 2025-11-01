@@ -1,0 +1,179 @@
+
+
+================================================================
+== Vitis HLS Report for 'lzBooster_255_16384_64_s'
+================================================================
+* Date:           Sat Nov  1 14:11:33 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  15.00 ns|  7.774 ns|     1.50 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                         |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |        Loop Name        |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- lz_booster_left_bytes  |       64|       64|         1|          -|          -|    64|        no|
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 5 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 7.77>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%outValue_loc = alloca i64 1"   --->   Operation 6 'alloca' 'outValue_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0, i32 0"   --->   Operation 7 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] ( I:3.63ns O:3.63ns )   --->   "%input_size_1 = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %input_size"   --->   Operation 8 'read' 'input_size_1' <Predicate = true> <Delay = 3.63> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] ( I:3.63ns O:3.63ns )   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i32P0A, i32 %input_size_c, i32 %input_size_1"   --->   Operation 10 'write' 'write_ln0' <Predicate = true> <Delay = 3.63> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %boosterStream, i64 666, i64 10, i64 18446744073709551615"   --->   Operation 11 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %boosterStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %bestMatchStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (2.55ns)   --->   "%icmp_ln560 = icmp_eq  i32 %input_size_1, i32 0" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:560]   --->   Operation 14 'icmp' 'icmp_ln560' <Predicate = true> <Delay = 2.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%br_ln560 = br i1 %icmp_ln560, void %if.end, void %return" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:560]   --->   Operation 15 'br' 'br_ln560' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%i_4 = alloca i32 1" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 16 'alloca' 'i_4' <Predicate = (!icmp_ln560)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (1.58ns)   --->   "%store_ln618 = store i7 0, i7 %i_4" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 17 'store' 'store_ln618' <Predicate = (!icmp_ln560)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 6.69>
+ST_2 : Operation 18 [1/1] (2.55ns)   --->   "%sub = add i32 %input_size_1, i32 4294967232"   --->   Operation 18 'add' 'sub' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%fence_ln573 = fence void @_ssdm_op_Fence, i32 %input_size, i32 %input_size_c, i32 4294967295, i32 %bestMatchStream, i32 %boosterStream" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:573]   --->   Operation 19 'fence' 'fence_ln573' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [2/2] (4.14ns)   --->   "%call_ln0 = call void @lzBooster<255, 16384, 64>_Pipeline_lz_booster, i32 %sub, i32 %bestMatchStream, i32 %boosterStream, i32 %outValue_loc"   --->   Operation 20 'call' 'call_ln0' <Predicate = true> <Delay = 4.14> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 21 [1/2] (0.00ns)   --->   "%call_ln0 = call void @lzBooster<255, 16384, 64>_Pipeline_lz_booster, i32 %sub, i32 %bestMatchStream, i32 %boosterStream, i32 %outValue_loc"   --->   Operation 21 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 3.54>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%outValue_loc_load = load i32 %outValue_loc"   --->   Operation 22 'load' 'outValue_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] ( I:3.54ns O:3.54ns )   --->   "%write_ln616 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %boosterStream, i32 %outValue_loc_load" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:616]   --->   Operation 23 'write' 'write_ln616' <Predicate = true> <Delay = 3.54> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln618 = br void %for.inc55" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 24 'br' 'br_ln618' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 7.09>
+ST_5 : Operation 25 [1/1] (0.00ns)   --->   "%i = load i7 %i_4" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 25 'load' 'i' <Predicate = (!icmp_ln560)> <Delay = 0.00>
+ST_5 : Operation 26 [1/1] (1.87ns)   --->   "%icmp_ln618 = icmp_eq  i7 %i, i7 64" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 26 'icmp' 'icmp_ln618' <Predicate = (!icmp_ln560)> <Delay = 1.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 27 [1/1] (1.87ns)   --->   "%i_6 = add i7 %i, i7 1" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 27 'add' 'i_6' <Predicate = (!icmp_ln560)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln618 = br i1 %icmp_ln618, void %for.inc55.split, void %return.loopexit" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 28 'br' 'br_ln618' <Predicate = (!icmp_ln560)> <Delay = 0.00>
+ST_5 : Operation 29 [1/1] (0.00ns)   --->   "%specpipeline_ln619 = specpipeline void @_ssdm_op_SpecPipeline, i32 0, i32 0, i32 1, i32 0, void @empty_7" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:619]   --->   Operation 29 'specpipeline' 'specpipeline_ln619' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 0.00>
+ST_5 : Operation 30 [1/1] (0.00ns)   --->   "%speclooptripcount_ln618 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 64, i64 64, i64 64" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 30 'speclooptripcount' 'speclooptripcount_ln618' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 0.00>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%specloopname_ln618 = specloopname void @_ssdm_op_SpecLoopName, void @empty_1" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 31 'specloopname' 'specloopname_ln618' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] ( I:3.54ns O:3.54ns )   --->   "%bestMatchStream_read = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %bestMatchStream" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620]   --->   Operation 32 'read' 'bestMatchStream_read' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 3.54> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_5 : Operation 33 [1/1] ( I:3.54ns O:3.54ns )   --->   "%write_ln620 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %boosterStream, i32 %bestMatchStream_read" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620]   --->   Operation 33 'write' 'write_ln620' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 3.54> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 8> <FIFO>
+ST_5 : Operation 34 [1/1] (1.58ns)   --->   "%store_ln618 = store i7 %i_6, i7 %i_4" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 34 'store' 'store_ln618' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 1.58>
+ST_5 : Operation 35 [1/1] (0.00ns)   --->   "%br_ln618 = br void %for.inc55" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618]   --->   Operation 35 'br' 'br_ln618' <Predicate = (!icmp_ln560 & !icmp_ln618)> <Delay = 0.00>
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "%br_ln0 = br void %return"   --->   Operation 36 'br' 'br_ln0' <Predicate = (!icmp_ln560 & icmp_ln618)> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%ret_ln622 = ret" [/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:622]   --->   Operation 37 'ret' 'ret_ln622' <Predicate = (icmp_ln618) | (icmp_ln560)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15.000ns, clock uncertainty: 1.500ns.
+
+ <State 1>: 7.774ns
+The critical path consists of the following:
+	fifo read operation ('input_size') on port 'input_size' [7]  (3.634 ns)
+	'icmp' operation 1 bit ('icmp_ln560', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:560) [13]  (2.552 ns)
+	'store' operation 0 bit ('store_ln618', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618) of constant 0 on local variable 'i', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618 [22]  (1.588 ns)
+
+ <State 2>: 6.692ns
+The critical path consists of the following:
+	'add' operation 32 bit ('sub') [17]  (2.552 ns)
+	'call' operation 0 bit ('call_ln0') to 'lzBooster<255, 16384, 64>_Pipeline_lz_booster' [19]  (4.140 ns)
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 3.549ns
+The critical path consists of the following:
+	'load' operation 32 bit ('outValue_loc_load') on local variable 'outValue_loc' [20]  (0.000 ns)
+	fifo write operation ('write_ln616', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:616) on port 'boosterStream' (/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:616) [21]  (3.549 ns)
+
+ <State 5>: 7.098ns
+The critical path consists of the following:
+	'load' operation 7 bit ('i', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618) on local variable 'i', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618 [25]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln618', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:618) [26]  (1.870 ns)
+	fifo read operation ('bestMatchStream_read', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620) on port 'bestMatchStream' (/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620) [33]  (3.549 ns)
+	fifo write operation ('write_ln620', /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620) on port 'boosterStream' (/root/FPGA/data_compression/L1/include/hw/lz_optional.hpp:620) [34]  (3.549 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,860 @@
+---
+MainSourceFile:  /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          283907
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          284373
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          284840
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1248_1:  '
+    FileOffset:      1248
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          568303
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1248_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_41_1:  '
+    FileOffset:      41
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/compress_utils.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1763750
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_41_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_T2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      66
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_68_1:  '
+    FileOffset:      68
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1766942
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_68_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_82_2:  '
+    FileOffset:      82
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1767365
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_82_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_93_3:  '
+    FileOffset:      93
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1767718
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_93_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_117_4:  '
+    FileOffset:      117
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1768491
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_117_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_129_5:  '
+    FileOffset:      129
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1768818
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_129_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_134_6:  '
+    FileOffset:      134
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1769122
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_134_6: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Resource with core_name: xpm_memory_uram pragma is ignored, because this core doesn''t exist at all '
+    FileOffset:      215
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      222
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_229_1:  '
+    FileOffset:      229
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1771872
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_229_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_235_2:  '
+    FileOffset:      235
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1772022
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_235_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_290_3:  '
+    FileOffset:      290
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1773494
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_290_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_316_4:  '
+    FileOffset:      316
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1774323
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_316_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_328_5:  '
+    FileOffset:      328
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1774674
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_328_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_333_6:  '
+    FileOffset:      333
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1774998
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_333_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_120_1:  '
+    FileOffset:      120
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1786324
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_120_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_124_2:  '
+    FileOffset:      124
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1786441
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_124_2: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      149
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      150
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_157_1:  '
+    FileOffset:      157
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1787713
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_157_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_246_1:  '
+    FileOffset:      246
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1790929
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_246_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_321_1:  '
+    FileOffset:      321
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1793288
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_321_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_332_2:  '
+    FileOffset:      332
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1793599
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_332_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_341_3:  '
+    FileOffset:      341
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1793887
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_341_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_370_1:  '
+    FileOffset:      370
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1794813
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_370_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_435_1:  '
+    FileOffset:      435
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1796540
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_435_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      439
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz_optional.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_115_1:  '
+    FileOffset:      115
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_downsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1806065
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_115_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_228_1:  '
+    FileOffset:      228
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_downsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1809662
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_228_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_443_1:  '
+    FileOffset:      443
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_downsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1817087
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_443_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      80
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_91_1:  '
+    FileOffset:      91
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1819025
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_91_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_100_2:  '
+    FileOffset:      100
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1819315
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_100_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_102_3:  '
+    FileOffset:      102
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1819362
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_102_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_126_4:  '
+    FileOffset:      126
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1820580
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_126_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_135_5:  '
+    FileOffset:      135
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1820952
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_135_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_183_1:  '
+    FileOffset:      183
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1822312
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_183_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_191_2:  '
+    FileOffset:      191
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1822549
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_191_2: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      291
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      418
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      449
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_460_1:  '
+    FileOffset:      460
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1830790
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_460_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_469_2:  '
+    FileOffset:      469
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1831113
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_469_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_471_3:  '
+    FileOffset:      471
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1831160
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_471_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_501_4:  '
+    FileOffset:      501
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1832646
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_501_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_510_5:  '
+    FileOffset:      510
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1833018
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_510_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_573_1:  '
+    FileOffset:      573
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1834555
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_573_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_578_2:  '
+    FileOffset:      578
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1834738
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_578_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_611_1:  '
+    FileOffset:      611
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1835576
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_611_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_697_1:  '
+    FileOffset:      697
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/mm2s.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1837818
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_697_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_119_1:  '
+    FileOffset:      119
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1841501
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_119_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_169_1:  '
+    FileOffset:      169
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1843250
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_169_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_285_1:  '
+    FileOffset:      285
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1846703
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_285_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_335_1:  '
+    FileOffset:      335
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1848104
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_335_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_373_1:  '
+    FileOffset:      373
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1849169
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_373_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_420_1:  '
+    FileOffset:      420
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/stream_upsizer.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1850683
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_420_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_88_1:  '
+    FileOffset:      88
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1852245
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_88_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_128_1:  '
+    FileOffset:      128
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1853292
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_128_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_175_1:  '
+    FileOffset:      175
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1854480
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_175_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_182_2:  '
+    FileOffset:      182
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1854671
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_182_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_183_3:  '
+    FileOffset:      183
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1854700
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_183_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_202_4:  '
+    FileOffset:      202
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1855381
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_202_4: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      292
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      346
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_349_1:  '
+    FileOffset:      349
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1859492
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_349_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_359_2:  '
+    FileOffset:      359
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1859711
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_359_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_361_3:  '
+    FileOffset:      361
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1859767
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_361_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_363_4:  '
+    FileOffset:      363
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1859853
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_363_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_385_5:  '
+    FileOffset:      385
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1860835
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_385_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_393_6:  '
+    FileOffset:      393
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1861281
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_393_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_402_7:  '
+    FileOffset:      402
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1861552
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_402_7: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + LUTRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      451
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_454_1:  '
+    FileOffset:      454
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1863094
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_454_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_464_2:  '
+    FileOffset:      464
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1863313
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_464_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_466_3:  '
+    FileOffset:      466
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1863369
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_466_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_468_4:  '
+    FileOffset:      468
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1863455
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_468_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_491_5:  '
+    FileOffset:      491
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1864496
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_491_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_499_6:  '
+    FileOffset:      499
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1864942
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_499_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_508_7:  '
+    FileOffset:      508
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1865213
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_508_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_570_1:  '
+    FileOffset:      570
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1866953
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_570_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_579_2:  '
+    FileOffset:      579
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1867173
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_579_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_615_1:  '
+    FileOffset:      615
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1868125
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_615_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_648_1:  '
+    FileOffset:      648
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1869035
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_648_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_716_1:  '
+    FileOffset:      716
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1870966
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_716_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_791_1:  '
+    FileOffset:      791
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/s2mm.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1872765
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_791_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      297
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      328
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      362
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      363
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      364
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_372_1:  '
+    FileOffset:      372
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1884566
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_372_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_415_1:  '
+    FileOffset:      415
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1886292
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_415_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_421_2:  '
+    FileOffset:      421
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1886483
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_421_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_449_3:  '
+    FileOffset:      449
+    FilePath:        /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1887656
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_449_3: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      62
+    FilePath:        lz4_compress_test.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, FIFO + SRL is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      63
+    FilePath:        lz4_compress_test.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_100_1:  '
+    FileOffset:      100
+    FilePath:        lz4_compress_test.cpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1890664
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_100_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_123_2:  '
+    FileOffset:      123
+    FilePath:        lz4_compress_test.cpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1891342
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_123_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_124_3:  '
+    FileOffset:      124
+    FilePath:        lz4_compress_test.cpp
+    Replacements:    
+      - FilePath:        /root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/.autopilot/db/lz4_compress_test.pp.0.cpp
+        Offset:          1891372
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_124_3: '
+...

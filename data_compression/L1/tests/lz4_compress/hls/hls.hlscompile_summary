@@ -1,0 +1,247 @@
+<ENTRY>
+{
+ "thisFile": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sat Nov  1 14:11:07 2025",
+ "timestampMillis": "1762006267706",
+ "buildStep": {
+  "cmdId": "b17ea95a-963a-499a-9e73-bd245dd9503a",
+  "name": "v++",
+  "logFile": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/logs/hls.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.2/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /root/FPGA/data_compression/L1/tests/lz4_compress/hls_config.cfg --work_dir hls --part xc7z020clg484-1 ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "/root/FPGA/data_compression/L1/tests/lz4_compress/hls_config.cfg",
+   "--work_dir",
+   "hls",
+   "--part",
+   "xc7z020clg484-1"
+  ],
+  "iniFiles": [
+   {
+    "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls_config.cfg",
+    "content": "[hls]\n\nclock=15.0\nclock_uncertainty=10%\nflow_target=vivado\nsyn.file=lz4_compress_test.cpp\nsyn.file_cflags=lz4_compress_test.cpp,-I/root/FPGA/data_compression/L1/include/hw\nsyn.top=lz4CompressEngineRun\ntb.file=lz4_compress_test.cpp\ntb.file_cflags=lz4_compress_test.cpp,-I/root/FPGA/data_compression/L1/include/hw\n\nsyn.compile.pragma_strict_mode=1\ncosim.disable_dependency_check=true\ncsim.argv=/root/FPGA/data_compression/L1/tests/lz4_compress/sample.txt /root/FPGA/data_compression/L1/tests/lz4_compress/sample.txt.encoded\n\ncosim.argv=/root/FPGA/data_compression/L1/tests/lz4_compress/sample.txt /root/FPGA/data_compression/L1/tests/lz4_compress/sample.txt.encoded\n\n\n\nvivado.flow=impl\nvivado.rtl=verilog\n\n\n"
+   }
+  ],
+  "cwd": "/root/FPGA/data_compression/L1/tests/lz4_compress"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 14:11:07 2025",
+ "timestampMillis": "1762006267706",
+ "status": {
+  "cmdId": "b17ea95a-963a-499a-9e73-bd245dd9503a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275012",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "lz4CompressEngineRun",
+     "file": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/lz4CompressEngineRun.zip",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/root/FPGA/data_compression/L1/tests/lz4_compress/lz4_compress_test.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275013",
+ "buildStep": {
+  "cmdId": "bbf91f8a-d357-4eb7-9d5a-4e0fec67c312",
+  "name": "",
+  "logFile": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/root/FPGA/data_compression/L1/tests/lz4_compress"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275014",
+ "status": {
+  "cmdId": "bbf91f8a-d357-4eb7-9d5a-4e0fec67c312",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275014",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275014",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:15 2025",
+ "timestampMillis": "1762006275015",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:36 2025",
+ "timestampMillis": "1762006296996",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:36 2025",
+ "timestampMillis": "1762006296996",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:36 2025",
+ "timestampMillis": "1762006296996",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 14:11:36 2025",
+ "timestampMillis": "1762006296997",
+ "status": {
+  "cmdId": "bbf91f8a-d357-4eb7-9d5a-4e0fec67c312",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sat Nov  1 14:11:49 2025",
+ "timestampMillis": "1762006309386",
+ "status": {
+  "cmdId": "b17ea95a-963a-499a-9e73-bd245dd9503a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:49 2025",
+ "timestampMillis": "1762006309415",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/reports/v++_compile_hls_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sat Nov  1 14:11:49 2025",
+ "timestampMillis": "1762006309416",
+ "report": {
+  "path": "/root/FPGA/data_compression/L1/tests/lz4_compress/hls/reports/.db/v++_compile_hls_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

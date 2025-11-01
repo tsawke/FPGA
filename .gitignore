@@ -15,14 +15,14 @@
 *.exe
 build/
 dist/
-*.log
+# *.log
 
 # HLS generated files
-hls/
-*.rpt
+# hls/
+# *.rpt
 *.xml
 vivado*.jou
-vivado*.log
+# vivado*.log
 *.str
 *.dir/
 

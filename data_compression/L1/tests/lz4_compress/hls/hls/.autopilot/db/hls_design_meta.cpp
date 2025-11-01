@@ -1,0 +1,26 @@
+#include "hls_design_meta.h"
+const Port_Property HLS_Design_Meta::port_props[]={
+	Port_Property("inStream_dout", 8, hls_in, 0, "ap_fifo", "fifo_data_in", 1),
+	Port_Property("inStream_empty_n", 1, hls_in, 0, "ap_fifo", "fifo_status", 1),
+	Port_Property("inStream_read", 1, hls_out, 0, "ap_fifo", "fifo_port_we", 1),
+	Port_Property("lz4Out_din", 8, hls_out, 1, "ap_fifo", "fifo_data_in", 1),
+	Port_Property("lz4Out_full_n", 1, hls_in, 1, "ap_fifo", "fifo_status", 1),
+	Port_Property("lz4Out_write", 1, hls_out, 1, "ap_fifo", "fifo_port_we", 1),
+	Port_Property("lz4Out_eos_din", 1, hls_out, 2, "ap_fifo", "fifo_data_in", 1),
+	Port_Property("lz4Out_eos_full_n", 1, hls_in, 2, "ap_fifo", "fifo_status", 1),
+	Port_Property("lz4Out_eos_write", 1, hls_out, 2, "ap_fifo", "fifo_port_we", 1),
+	Port_Property("lz4OutSize_din", 32, hls_out, 3, "ap_fifo", "fifo_data_in", 1),
+	Port_Property("lz4OutSize_full_n", 1, hls_in, 3, "ap_fifo", "fifo_status", 1),
+	Port_Property("lz4OutSize_write", 1, hls_out, 3, "ap_fifo", "fifo_port_we", 1),
+	Port_Property("max_lit_limit", 32, hls_out, 4, "ap_vld", "out_data", 1),
+	Port_Property("input_size", 32, hls_in, 5, "ap_none", "in_data", 1),
+	Port_Property("core_idx", 32, hls_in, 6, "ap_none", "in_data", 1),
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_start", 1, hls_in, -1, "", "", 1),
+	Port_Property("max_lit_limit_ap_vld", 1, hls_out, 4, "ap_vld", "out_vld", 1),
+	Port_Property("ap_done", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_ready", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_idle", 1, hls_out, -1, "", "", 1),
+};
+const char* HLS_Design_Meta::dut_name = "lz4CompressEngineRun";

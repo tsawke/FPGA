@@ -1,0 +1,205 @@
+
+
+================================================================
+== Vitis HLS Report for 'lzBestMatchFilter_6_65536_Pipeline_lz_bestMatchFilter'
+================================================================
+* Date:           Sat Nov  1 14:11:34 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  10.597 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- lz_bestMatchFilter  |        ?|        ?|         2|          1|          1|     ?|       yes|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    293|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|    108|    -|
+|Register         |        -|    -|     229|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     229|    401|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |             Variable Name             | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |add_ln344_1_fu_361_p2                  |         +|   0|  0|  14|           9|           2|
+    |add_ln344_2_fu_391_p2                  |         +|   0|  0|  14|           9|           2|
+    |add_ln344_3_fu_421_p2                  |         +|   0|  0|  14|           9|           3|
+    |add_ln344_4_fu_451_p2                  |         +|   0|  0|  14|           9|           3|
+    |add_ln344_fu_331_p2                    |         +|   0|  0|  14|           9|           1|
+    |i_9_fu_257_p2                          |         +|   0|  0|  39|          32|           1|
+    |and_ln344_1_fu_479_p2                  |       and|   0|  0|   2|           1|           1|
+    |and_ln344_2_fu_485_p2                  |       and|   0|  0|   2|           1|           1|
+    |and_ln344_3_fu_491_p2                  |       and|   0|  0|   2|           1|           1|
+    |and_ln344_fu_473_p2                    |       and|   0|  0|   2|           1|           1|
+    |ap_block_pp0_stage0_01001_grp1         |       and|   0|  0|   2|           1|           1|
+    |best_match_1_fu_497_p2                 |       and|   0|  0|   2|           1|           1|
+    |icmp_ln327_fu_251_p2                   |      icmp|   0|  0|  39|          32|          32|
+    |icmp_ln344_1_fu_341_p2                 |      icmp|   0|  0|  14|           9|           9|
+    |icmp_ln344_2_fu_371_p2                 |      icmp|   0|  0|  14|           9|           9|
+    |icmp_ln344_3_fu_401_p2                 |      icmp|   0|  0|  14|           9|           9|
+    |icmp_ln344_4_fu_431_p2                 |      icmp|   0|  0|  14|           9|           9|
+    |icmp_ln344_5_fu_461_p2                 |      icmp|   0|  0|  14|           9|           9|
+    |icmp_ln344_fu_311_p2                   |      icmp|   0|  0|  15|           8|           8|
+    |ap_block_state2_pp0_stage0_iter1_grp1  |        or|   0|  0|   2|           1|           1|
+    |bestMatchStream_din                    |    select|   0|  0|  32|           1|          32|
+    |ap_enable_pp0                          |       xor|   0|  0|   2|           1|           2|
+    |best_match_fu_317_p2                   |       xor|   0|  0|   2|           1|           2|
+    |xor_ln344_1_fu_377_p2                  |       xor|   0|  0|   2|           1|           2|
+    |xor_ln344_2_fu_407_p2                  |       xor|   0|  0|   2|           1|           2|
+    |xor_ln344_3_fu_437_p2                  |       xor|   0|  0|   2|           1|           2|
+    |xor_ln344_4_fu_467_p2                  |       xor|   0|  0|   2|           1|           2|
+    |xor_ln344_fu_347_p2                    |       xor|   0|  0|   2|           1|           2|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                  |          |   0|  0| 293|         177|         150|
+    +---------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------+----+-----------+-----+-----------+
+    |               Name               | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                       |   9|          2|    1|          2|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_8              |   9|          2|   32|         64|
+    |bestMatchStream_blk_n             |   9|          2|    1|          2|
+    |compareValue_1_fu_100             |   9|          2|   32|         64|
+    |compareValue_2_fu_104             |   9|          2|   32|         64|
+    |compareValue_3_fu_108             |   9|          2|   32|         64|
+    |compareValue_4_fu_112             |   9|          2|   32|         64|
+    |compareValue_fu_96                |   9|          2|   32|         64|
+    |compressdStream_blk_n             |   9|          2|    1|          2|
+    |i_fu_88                           |   9|          2|   32|         64|
+    |outValue_fu_92                    |   9|          2|   32|         64|
+    +----------------------------------+----+-----------+-----+-----------+
+    |Total                             | 108|         24|  260|        520|
+    +----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |compareValue_1_fu_100             |  32|   0|   32|          0|
+    |compareValue_2_fu_104             |  32|   0|   32|          0|
+    |compareValue_3_fu_108             |  32|   0|   32|          0|
+    |compareValue_4_fu_112             |  32|   0|   32|          0|
+    |compareValue_fu_96                |  32|   0|   32|          0|
+    |i_fu_88                           |  32|   0|   32|          0|
+    |icmp_ln327_reg_608                |   1|   0|    1|          0|
+    |outValue_fu_92                    |  32|   0|   32|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             | 229|   0|  229|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+------------+---------------------------------------------------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |                      Source Object                      |    C Type    |
++--------------------------------+-----+-----+------------+---------------------------------------------------------+--------------+
+|ap_clk                          |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|ap_rst                          |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|ap_start                        |   in|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|ap_done                         |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|ap_idle                         |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|ap_ready                        |  out|    1|  ap_ctrl_hs|  lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter|  return value|
+|compressdStream_dout            |   in|   32|     ap_fifo|                                          compressdStream|       pointer|
+|compressdStream_empty_n         |   in|    1|     ap_fifo|                                          compressdStream|       pointer|
+|compressdStream_read            |  out|    1|     ap_fifo|                                          compressdStream|       pointer|
+|compressdStream_num_data_valid  |   in|    4|     ap_fifo|                                          compressdStream|       pointer|
+|compressdStream_fifo_cap        |   in|    4|     ap_fifo|                                          compressdStream|       pointer|
+|bestMatchStream_din             |  out|   32|     ap_fifo|                                          bestMatchStream|       pointer|
+|bestMatchStream_full_n          |   in|    1|     ap_fifo|                                          bestMatchStream|       pointer|
+|bestMatchStream_write           |  out|    1|     ap_fifo|                                          bestMatchStream|       pointer|
+|bestMatchStream_num_data_valid  |   in|   32|     ap_fifo|                                          bestMatchStream|       pointer|
+|bestMatchStream_fifo_cap        |   in|   32|     ap_fifo|                                          bestMatchStream|       pointer|
+|compare_window_5                |   in|   32|     ap_none|                                         compare_window_5|        scalar|
+|compare_window_4                |   in|   32|     ap_none|                                         compare_window_4|        scalar|
+|compare_window_3                |   in|   32|     ap_none|                                         compare_window_3|        scalar|
+|compare_window_2                |   in|   32|     ap_none|                                         compare_window_2|        scalar|
+|compare_window_1                |   in|   32|     ap_none|                                         compare_window_1|        scalar|
+|compare_window                  |   in|   32|     ap_none|                                           compare_window|        scalar|
+|input_size_2                    |   in|   32|     ap_none|                                             input_size_2|        scalar|
+|compare_window_12_out           |  out|   32|      ap_vld|                                    compare_window_12_out|       pointer|
+|compare_window_12_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_12_out|       pointer|
+|compare_window_13_out           |  out|   32|      ap_vld|                                    compare_window_13_out|       pointer|
+|compare_window_13_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_13_out|       pointer|
+|compare_window_14_out           |  out|   32|      ap_vld|                                    compare_window_14_out|       pointer|
+|compare_window_14_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_14_out|       pointer|
+|compare_window_15_out           |  out|   32|      ap_vld|                                    compare_window_15_out|       pointer|
+|compare_window_15_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_15_out|       pointer|
+|compare_window_16_out           |  out|   32|      ap_vld|                                    compare_window_16_out|       pointer|
+|compare_window_16_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_16_out|       pointer|
+|compare_window_17_out           |  out|   32|      ap_vld|                                    compare_window_17_out|       pointer|
+|compare_window_17_out_ap_vld    |  out|    1|      ap_vld|                                    compare_window_17_out|       pointer|
++--------------------------------+-----+-----+------------+---------------------------------------------------------+--------------+
+

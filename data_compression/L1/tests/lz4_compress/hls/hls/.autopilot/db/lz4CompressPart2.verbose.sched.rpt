@@ -1,0 +1,146 @@
+
+
+================================================================
+== Vitis HLS Report for 'lz4CompressPart2'
+================================================================
+* Date:           Sat Nov  1 14:11:34 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  15.00 ns|  12.460 ns|     1.50 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.63>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%compressedSize_loc = alloca i64 1"   --->   Operation 5 'alloca' 'compressedSize_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] ( I:3.63ns O:3.63ns )   --->   "%input_size_3 = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %input_size"   --->   Operation 6 'read' 'input_size_3' <Predicate = true> <Delay = 3.63> <CoreInst = "FIFO_SRL">   --->   Core 80 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%fence_ln129 = fence void @_ssdm_op_Fence, i32 %input_size, i32 4294967295, i64 %lenOffset_Stream, i8 %lit_outStream, i8 %lz4Out, i1 %lz4Out_eos" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:129]   --->   Operation 7 'fence' 'fence_ln129' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [2/2] (0.00ns)   --->   "%call_ln0 = call void @lz4CompressPart2_Pipeline_lz4_compress, i32 %input_size_3, i64 %lenOffset_Stream, i8 %lit_outStream, i8 %lz4Out, i1 %lz4Out_eos, i32 %compressedSize_loc"   --->   Operation 8 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 5.11>
+ST_3 : Operation 9 [1/2] (5.11ns)   --->   "%call_ln0 = call void @lz4CompressPart2_Pipeline_lz4_compress, i32 %input_size_3, i64 %lenOffset_Stream, i8 %lit_outStream, i8 %lz4Out, i1 %lz4Out_eos, i32 %compressedSize_loc"   --->   Operation 9 'call' 'call_ln0' <Predicate = true> <Delay = 5.11> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 3.47>
+ST_4 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_size, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i64 %lenOffset_Stream, i64 666, i64 10, i64 18446744073709551615"   --->   Operation 11 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %lenOffset_Stream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %lit_outStream, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %lz4Out, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %lz4Out_eos, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lz4OutSize, void @empty_6, i32 0, i32 0, void @empty_7, i32 0, i32 0, void @empty_7, void @empty_7, void @empty_7, i32 0, i32 0, i32 0, i32 0, void @empty_7, void @empty_7, i32 4294967295, i32 0, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%fence_ln255 = fence void @_ssdm_op_Fence, i64 %lenOffset_Stream, i8 %lit_outStream, i8 %lz4Out, i1 %lz4Out_eos, i32 4294967295, i32 %lz4OutSize, i8 %lz4Out, i1 %lz4Out_eos" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:255]   --->   Operation 17 'fence' 'fence_ln255' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%compressedSize_loc_load = load i32 %compressedSize_loc"   --->   Operation 18 'load' 'compressedSize_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] ( I:3.47ns O:3.47ns )   --->   "%write_ln255 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %lz4OutSize, i32 %compressedSize_loc_load" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:255]   --->   Operation 19 'write' 'write_ln255' <Predicate = true> <Delay = 3.47> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.47> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_4 : Operation 20 [1/1] ( I:3.47ns O:3.47ns )   --->   "%write_ln256 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %lz4Out, i8 0" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:256]   --->   Operation 20 'write' 'write_ln256' <Predicate = true> <Delay = 3.47> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.47> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_4 : Operation 21 [1/1] ( I:3.47ns O:3.47ns )   --->   "%write_ln257 = write void @_ssdm_op_Write.ap_fifo.volatile.i1P0A, i1 %lz4Out_eos, i1 1" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:257]   --->   Operation 21 'write' 'write_ln257' <Predicate = true> <Delay = 3.47> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.47> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = -1> <Depth = -1> <FIFO>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%ret_ln258 = ret" [/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:258]   --->   Operation 22 'ret' 'ret_ln258' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15.000ns, clock uncertainty: 1.500ns.
+
+ <State 1>: 3.634ns
+The critical path consists of the following:
+	fifo read operation ('input_size') on port 'input_size' [9]  (3.634 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 5.118ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'lz4CompressPart2_Pipeline_lz4_compress' [17]  (5.118 ns)
+
+ <State 4>: 3.477ns
+The critical path consists of the following:
+	'load' operation 32 bit ('compressedSize_loc_load') on local variable 'compressedSize_loc' [19]  (0.000 ns)
+	fifo write operation ('write_ln255', /root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:255) on port 'lz4OutSize' (/root/FPGA/data_compression/L1/include/hw/lz4_compress.hpp:255) [20]  (3.477 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

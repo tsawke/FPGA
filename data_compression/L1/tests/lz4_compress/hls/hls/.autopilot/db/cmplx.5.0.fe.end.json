@@ -1,0 +1,254 @@
+{
+    "1": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>_Outline_VITIS_LOOP_82_2",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "80",
+        "instructions": "61",
+        "total_instructions": "61",
+        "calls": "",
+        "basicblocks": "10",
+        "loads": {
+            "L": "11"
+        },
+        "stores": {
+            "L": "12"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "lz4Compress<4096, 1>",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz4_compress.hpp",
+        "fileloc": "284",
+        "instructions": "20",
+        "total_instructions": "267",
+        "calls": "4 6",
+        "basicblocks": "1"
+    },
+    "3": {
+        "name": "lz4CompressPart2_Pipeline_lz4_compress",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz4_compress.hpp",
+        "fileloc": "104",
+        "instructions": "141",
+        "total_instructions": "141",
+        "calls": "",
+        "basicblocks": "15",
+        "loads": {
+            "L": "11"
+        },
+        "stores": {
+            "L": "27"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "lz4CompressPart1<4096, 1>",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz4_compress.hpp",
+        "fileloc": "45",
+        "instructions": "31",
+        "total_instructions": "89",
+        "calls": "11",
+        "basicblocks": "6",
+        "loads": {
+            "L": "2"
+        }
+    },
+    "0": {
+        "name": "lz4CompressEngineRun",
+        "file": "lz4_compress_test.cpp",
+        "fileloc": "47",
+        "instructions": "42",
+        "total_instructions": "1130",
+        "calls": "8 9 15 2",
+        "basicblocks": "1"
+    },
+    "5": {
+        "name": "lzBestMatchFilter<6, 65536>_Pipeline_lz_bestMatchFilter",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_optional.hpp",
+        "fileloc": "313",
+        "instructions": "92",
+        "total_instructions": "92",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "14"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "6": {
+        "name": "lz4CompressPart2",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz4_compress.hpp",
+        "fileloc": "104",
+        "instructions": "17",
+        "total_instructions": "158",
+        "calls": "3",
+        "basicblocks": "1",
+        "loads": {
+            "L": "1"
+        }
+    },
+    "7": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>_Pipeline_lz_left_bytes",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "168",
+        "instructions": "19",
+        "total_instructions": "19",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "58",
+        "instructions": "61",
+        "total_instructions": "540",
+        "calls": "14 1 13 12 7",
+        "basicblocks": "3",
+        "loads": {
+            "L": "15"
+        }
+    },
+    "9": {
+        "name": "lzBestMatchFilter<6, 65536>",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_optional.hpp",
+        "fileloc": "313",
+        "instructions": "46",
+        "total_instructions": "138",
+        "calls": "5",
+        "basicblocks": "6",
+        "loads": {
+            "L": "7"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "10": {
+        "name": "lzBooster<255, 16384, 64>_Pipeline_lz_booster",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_optional.hpp",
+        "fileloc": "561",
+        "instructions": "112",
+        "total_instructions": "112",
+        "calls": "",
+        "basicblocks": "14",
+        "loads": {
+            "L": "12"
+        },
+        "stores": {
+            "L": "29"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "11": {
+        "name": "lz4CompressPart1<4096, 1>_Pipeline_lz4_divide",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz4_compress.hpp",
+        "fileloc": "45",
+        "instructions": "58",
+        "total_instructions": "58",
+        "calls": "",
+        "basicblocks": "11",
+        "loads": {
+            "L": "4"
+        },
+        "stores": {
+            "L": "9"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "12": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>_Pipeline_lz_compress_leftover",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "161",
+        "instructions": "23",
+        "total_instructions": "23",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "13": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>_Pipeline_lz_compress",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "87",
+        "instructions": "354",
+        "total_instructions": "354",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "13"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "14": {
+        "name": "lzCompress<6, 4, 65536, 6, 1, 2048, 64>_Pipeline_dict_flush",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_compress.hpp",
+        "fileloc": "74",
+        "instructions": "22",
+        "total_instructions": "22",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "15": {
+        "name": "lzBooster<255, 16384, 64>",
+        "file": "\/root\/FPGA\/data_compression\/L1\/include\/hw\/lz_optional.hpp",
+        "fileloc": "559",
+        "instructions": "31",
+        "total_instructions": "143",
+        "calls": "10",
+        "basicblocks": "6",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

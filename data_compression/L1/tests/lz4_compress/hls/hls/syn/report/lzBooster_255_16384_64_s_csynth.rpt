@@ -1,0 +1,185 @@
+
+
+================================================================
+== Vitis HLS Report for 'lzBooster_255_16384_64_s'
+================================================================
+* Date:           Sat Nov  1 14:11:35 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  15.00 ns|  7.774 ns|     1.50 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |                                                       |                                            |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+        |                        Instance                       |                   Module                   |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+        |grp_lzBooster_255_16384_64_Pipeline_lz_booster_fu_106  |lzBooster_255_16384_64_Pipeline_lz_booster  |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+        * Loop: 
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                         |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |        Loop Name        |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- lz_booster_left_bytes  |       64|       64|         1|          -|          -|    64|        no|
+        +-------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    113|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        8|    -|     390|    651|    0|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|    136|    -|
+|Register         |        -|    -|      80|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        8|    0|     470|    900|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        2|    0|      ~0|      1|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------------------------+--------------------------------------------+---------+----+-----+-----+-----+
+    |                        Instance                       |                   Module                   | BRAM_18K| DSP|  FF | LUT | URAM|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+-----+-----+-----+
+    |grp_lzBooster_255_16384_64_Pipeline_lz_booster_fu_106  |lzBooster_255_16384_64_Pipeline_lz_booster  |        8|   0|  390|  651|    0|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+-----+-----+-----+
+    |Total                                                  |                                            |        8|   0|  390|  651|    0|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |         Variable Name         | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |i_6_fu_160_p2                  |         +|   0|  0|  14|           7|           1|
+    |sub_fu_127_p2                  |         +|   0|  0|  39|          32|           8|
+    |ap_predicate_op32_read_state5  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln560_fu_116_p2           |      icmp|   0|  0|  39|          32|           1|
+    |icmp_ln618_fu_154_p2           |      icmp|   0|  0|  15|           7|           8|
+    |ap_block_state1                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state5                |        or|   0|  0|   2|           1|           1|
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |Total                          |          |   0|  0| 113|          81|          21|
+    +-------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  31|          6|    1|          6|
+    |ap_done                |   9|          2|    1|          2|
+    |bestMatchStream_blk_n  |   9|          2|    1|          2|
+    |bestMatchStream_read   |  14|          3|    1|          3|
+    |boosterStream_blk_n    |   9|          2|    1|          2|
+    |boosterStream_din      |  14|          3|   32|         96|
+    |boosterStream_write    |  14|          3|    1|          3|
+    |i_4_fu_74              |   9|          2|    7|         14|
+    |input_size_blk_n       |   9|          2|    1|          2|
+    |input_size_c_blk_n     |   9|          2|    1|          2|
+    |real_start             |   9|          2|    1|          2|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  | 136|         29|   48|        134|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------------------------------+----+----+-----+-----------+
+    |                                Name                                | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                           |   5|   0|    5|          0|
+    |ap_done_reg                                                         |   1|   0|    1|          0|
+    |grp_lzBooster_255_16384_64_Pipeline_lz_booster_fu_106_ap_start_reg  |   1|   0|    1|          0|
+    |i_4_fu_74                                                           |   7|   0|    7|          0|
+    |icmp_ln560_reg_182                                                  |   1|   0|    1|          0|
+    |input_size_1_reg_177                                                |  32|   0|   32|          0|
+    |start_once_reg                                                      |   1|   0|    1|          0|
+    |sub_reg_193                                                         |  32|   0|   32|          0|
+    +--------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                               |  80|   0|   80|          0|
+    +--------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+------------+---------------------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++--------------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                          |   in|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_rst                          |   in|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_start                        |   in|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|start_full_n                    |   in|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_done                         |  out|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_continue                     |   in|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_idle                         |  out|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|ap_ready                        |  out|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|start_out                       |  out|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|start_write                     |  out|    1|  ap_ctrl_hs|  lzBooster<255, 16384, 64>|  return value|
+|bestMatchStream_dout            |   in|   32|     ap_fifo|            bestMatchStream|       pointer|
+|bestMatchStream_empty_n         |   in|    1|     ap_fifo|            bestMatchStream|       pointer|
+|bestMatchStream_read            |  out|    1|     ap_fifo|            bestMatchStream|       pointer|
+|bestMatchStream_num_data_valid  |   in|    4|     ap_fifo|            bestMatchStream|       pointer|
+|bestMatchStream_fifo_cap        |   in|    4|     ap_fifo|            bestMatchStream|       pointer|
+|boosterStream_din               |  out|   32|     ap_fifo|              boosterStream|       pointer|
+|boosterStream_full_n            |   in|    1|     ap_fifo|              boosterStream|       pointer|
+|boosterStream_write             |  out|    1|     ap_fifo|              boosterStream|       pointer|
+|boosterStream_num_data_valid    |   in|   32|     ap_fifo|              boosterStream|       pointer|
+|boosterStream_fifo_cap          |   in|   32|     ap_fifo|              boosterStream|       pointer|
+|input_size_dout                 |   in|   32|     ap_fifo|                 input_size|       pointer|
+|input_size_empty_n              |   in|    1|     ap_fifo|                 input_size|       pointer|
+|input_size_read                 |  out|    1|     ap_fifo|                 input_size|       pointer|
+|input_size_num_data_valid       |   in|    3|     ap_fifo|                 input_size|       pointer|
+|input_size_fifo_cap             |   in|    3|     ap_fifo|                 input_size|       pointer|
+|input_size_c_din                |  out|   32|     ap_fifo|               input_size_c|       pointer|
+|input_size_c_full_n             |   in|    1|     ap_fifo|               input_size_c|       pointer|
+|input_size_c_write              |  out|    1|     ap_fifo|               input_size_c|       pointer|
+|input_size_c_num_data_valid     |   in|    3|     ap_fifo|               input_size_c|       pointer|
+|input_size_c_fifo_cap           |   in|    3|     ap_fifo|               input_size_c|       pointer|
++--------------------------------+-----+-----+------------+---------------------------+--------------+
+
