@@ -7,4 +7,4 @@ export PLATFORM_REPO_PATHS=/opt/xilinx/platforms
 export XPART=xc7z020clg484-1
 
 # make clean
-make run TARGET=csynth
+make run TARGET=impl
